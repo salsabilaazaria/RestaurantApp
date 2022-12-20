@@ -14,7 +14,7 @@ extension UIColor {
 	}
 	
 	public class var bukaRestoLightGray: UIColor {
-		return UIColor(red: 135/255.0, green: 76/255.0, blue: 98/255.0, alpha: 1)
+		return UIColor(red: 242/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1)
 	}
 
 }
