@@ -16,6 +16,8 @@
 		AF528D3C2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */; };
 		AF528D4B294728D900CF81A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D49294728D900CF81A5 /* LoginViewController.swift */; };
 		AF528D4C294728D900CF81A5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF528D4A294728D900CF81A5 /* LoginViewController.xib */; };
+		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
+		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AF528D49294728D900CF81A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF528D4A294728D900CF81A5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		AF528D172947283100CF81A5 /* RestaurantApp */ = {
 			isa = PBXGroup;
 			children = (
+				AFCB690029507B0900188F3B /* Helper */,
 				AF528D48294728B700CF81A5 /* Screen */,
 				AF528D182947283100CF81A5 /* AppDelegate.swift */,
 				AF528D1C2947283100CF81A5 /* ViewController.swift */,
@@ -133,6 +138,15 @@
 				AF528D4A294728D900CF81A5 /* LoginViewController.xib */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		AFCB690029507B0900188F3B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AFCB690129507B1900188F3B /* UIColor+Extension.swift */,
+				AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +282,9 @@
 			files = (
 				AF528D4B294728D900CF81A5 /* LoginViewController.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
+				AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */,
 				AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */,
+				AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
