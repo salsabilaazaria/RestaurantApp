@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	private func setupInitialScreen() {
-		let initialVC = HomePageViewController()
+		let initialVC = LoginViewController()
 		let navVC = UINavigationController(rootViewController: initialVC)
 		
 		let window = UIWindow(frame: UIScreen.main.bounds)
