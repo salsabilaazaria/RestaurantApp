@@ -22,6 +22,9 @@
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
 		DD2B2D74A0825F510956C7B7 /* Pods_RestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BB6458CF820E04EC1F5531 /* Pods_RestaurantApp.framework */; };
+		AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */; };
+		AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */; };
+		AFE985BA2951AD3E008CCC36 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		CF726F1455B819C21767FFB4 /* Pods-RestaurantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D99D2399A624C1658DF9B295 /* Pods-RestaurantAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
+		AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,7 @@
 		AF528D48294728B700CF81A5 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				AFE985B42951ACD9008CCC36 /* HomePage */,
 				AF528D49294728D900CF81A5 /* LoginViewController.swift */,
 				AF528D4A294728D900CF81A5 /* LoginViewController.xib */,
 			);
@@ -178,6 +185,7 @@
 			children = (
 				AFCB690129507B1900188F3B /* UIColor+Extension.swift */,
 				AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */,
+				AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -190,6 +198,15 @@
 				ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AFE985B42951ACD9008CCC36 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
+				AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */,
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
 				080BB8B12951C48D007B67E5 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
@@ -434,6 +452,8 @@
 			files = (
 				AF528D4B294728D900CF81A5 /* LoginViewController.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
+				AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */,
+				AFE985BA2951AD3E008CCC36 /* ViewController+Extension.swift in Sources */,
 				AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */,
 				AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */,
 				AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */,
