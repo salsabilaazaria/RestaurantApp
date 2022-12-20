@@ -11,19 +11,21 @@ class HomePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		configureHomeNavBar()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+	private func configureHomeNavBar() {
+		useNavBarWithLeftLogo()
+		
+		let settingButton = UIButton(type: .custom)
+		settingButton.setImage(UIImage(named: "setting-icon.png"), for: .normal)
+		let scanButton = UIButton(type: .custom)
+		scanButton.setImage(UIImage(named: "scan-icon.png"), for: .normal)
+		let searchButton = UIButton(type: .custom)
+		searchButton.setImage(UIImage(named: "search-icon.png"), for: .normal)
+		
+		navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: settingButton),
+											  UIBarButtonItem(customView: scanButton),
+											  UIBarButtonItem(customView: searchButton)]
+	}
 }

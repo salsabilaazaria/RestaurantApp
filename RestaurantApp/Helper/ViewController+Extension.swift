@@ -6,3 +6,22 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIViewController {
+	
+	func useNavBarWithLeftLogo() {
+		navigationController?.navigationBar.backgroundColor = UIColor.bukaRestoDarkGreen
+		
+		let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+		
+		let logoImage = UIImage(named: "logo.png")
+		let logoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+		logoImageView.image = logoImage
+		logoImageView.contentMode = .scaleAspectFit
+
+		leftView.addSubview(logoImageView)
+		navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftView)
+	}
+	
+}
