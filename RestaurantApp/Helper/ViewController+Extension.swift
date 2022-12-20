@@ -9,8 +9,14 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+	func useDarkGreenStatusBar() {
+		let statusBar = UIView(frame: (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame)!)
+		statusBar.backgroundColor = UIColor.bukaRestoDarkGreen
+		UIApplication.shared.keyWindow?.addSubview(statusBar)
+	}
 	
 	func useNavBarWithLeftLogo() {
+		useDarkGreenStatusBar()
 		navigationController?.navigationBar.backgroundColor = UIColor.bukaRestoDarkGreen
 		
 		let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
