@@ -6,10 +6,8 @@ target 'RestaurantApp' do
   use_frameworks!
 
   # Pods for RestaurantApp
-  pod 'FirebaseAnalytics'
-  pod 'FirebaseAuth'
-  pod 'FirebaseFirestore'
-  pod 'FirebaseCrashlytics'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
   
 
   target 'RestaurantAppTests' do
