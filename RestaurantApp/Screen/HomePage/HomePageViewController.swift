@@ -9,9 +9,18 @@ import UIKit
 
 class HomePageViewController: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var titleTopResto: UILabel!
+	@IBOutlet weak var firstNumberText: UILabel!
+	@IBOutlet weak var secondNumberText: UILabel!
+	@IBOutlet weak var thirdNumberText: UILabel!
+
+	
+	override func viewDidLoad() {
+		self.view.backgroundColor = UIColor.bukaRestoLightGray
         super.viewDidLoad()
 		configureHomeNavBar()
+		configureTitleTopResto()
+		configureNumberText()
     }
 	
 	private func configureHomeNavBar() {
@@ -28,4 +37,15 @@ class HomePageViewController: UIViewController {
 											  UIBarButtonItem(customView: scanButton),
 											  UIBarButtonItem(customView: searchButton)]
 	}
+	
+	private func configureTitleTopResto() {
+		titleTopResto.attributedText = NSAttributedString.title(text: "Top Resto")
+	}
+	
+	private func configureNumberText() {
+		firstNumberText.attributedText = NSAttributedString.title(text: "1")
+		secondNumberText.attributedText = NSAttributedString.title(text: "2")
+		thirdNumberText.attributedText = NSAttributedString.title(text: "3")
+	}
+	
 }
