@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		080BB8B12951C48D007B67E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 080BB8B02951C48C007B67E5 /* GoogleService-Info.plist */; };
+		086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */; };
 		1AC4BC6BD731C134D128413E /* Pods_RestaurantAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */; };
 		4DE0874C6D1BD70B404C0F0A /* Pods_RestaurantApp_RestaurantAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A283198BCBC864F40426AF /* Pods_RestaurantApp_RestaurantAppUITests.framework */; };
 		AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D182947283100CF81A5 /* AppDelegate.swift */; };
@@ -21,10 +21,10 @@
 		AF528D4C294728D900CF81A5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF528D4A294728D900CF81A5 /* LoginViewController.xib */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
-		DD2B2D74A0825F510956C7B7 /* Pods_RestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BB6458CF820E04EC1F5531 /* Pods_RestaurantApp.framework */; };
 		AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */; };
 		AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */; };
 		AFE985BA2951AD3E008CCC36 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */; };
+		DD2B2D74A0825F510956C7B7 /* Pods_RestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BB6458CF820E04EC1F5531 /* Pods_RestaurantApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		080BB8B02951C48C007B67E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C343EB85E4A7B499616269C /* Pods-RestaurantAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		51BB6458CF820E04EC1F5531 /* Pods_RestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E8397D7E690C7F9ADCD4FB /* Pods-RestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.release.xcconfig"; path = "Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,12 +67,12 @@
 		AF528D4A294728D900CF81A5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
-		CF726F1455B819C21767FFB4 /* Pods-RestaurantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.debug.xcconfig"; sourceTree = "<group>"; };
-		D99D2399A624C1658DF9B295 /* Pods-RestaurantAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
 		AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		CF726F1455B819C21767FFB4 /* Pods-RestaurantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D99D2399A624C1658DF9B295 /* Pods-RestaurantAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +141,7 @@
 		AF528D172947283100CF81A5 /* RestaurantApp */ = {
 			isa = PBXGroup;
 			children = (
-				080BB8B02951C48C007B67E5 /* GoogleService-Info.plist */,
+				086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */,
 				AFCB690029507B0900188F3B /* Helper */,
 				AF528D48294728B700CF81A5 /* Screen */,
 				AF528D182947283100CF81A5 /* AppDelegate.swift */,
@@ -190,6 +190,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		AFE985B42951ACD9008CCC36 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
+				AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
 		BC9A4E9DD2D0FF96EB9CFED8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,15 +207,6 @@
 				ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AFE985B42951ACD9008CCC36 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
-				AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */,
-			);
-			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +320,7 @@
 			files = (
 				AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */,
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
-				080BB8B12951C48D007B67E5 /* GoogleService-Info.plist in Resources */,
+				086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
 				AF528D4C294728D900CF81A5 /* LoginViewController.xib in Resources */,
 			);
