@@ -11,6 +11,12 @@
 		1AC4BC6BD731C134D128413E /* Pods_RestaurantAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */; };
 		4DE0874C6D1BD70B404C0F0A /* Pods_RestaurantApp_RestaurantAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A283198BCBC864F40426AF /* Pods_RestaurantApp_RestaurantAppUITests.framework */; };
 		AF2F69B42955BB2700F04660 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69B32955BB2700F04660 /* URLSession+Extension.swift */; };
+		AF2F69B82955BBE800F04660 /* TopRestoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69B62955BBE800F04660 /* TopRestoCollectionViewCell.swift */; };
+		AF2F69B92955BBE800F04660 /* TopRestoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF2F69B72955BBE800F04660 /* TopRestoCollectionViewCell.xib */; };
+		AF2F69BC2955BF6500F04660 /* BukaRestoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69BB2955BF6500F04660 /* BukaRestoResponse.swift */; };
+		AF2F69BE2955C07600F04660 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69BD2955C07600F04660 /* HomePageViewModel.swift */; };
+		AF2F69C32955C41800F04660 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69C12955C41800F04660 /* HeaderCollectionReusableView.swift */; };
+		AF2F69C42955C41800F04660 /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF2F69C22955C41800F04660 /* HeaderCollectionReusableView.xib */; };
 		AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D182947283100CF81A5 /* AppDelegate.swift */; };
 		AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D1C2947283100CF81A5 /* ViewController.swift */; };
 		AF528D222947283400CF81A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF528D212947283400CF81A5 /* Assets.xcassets */; };
@@ -54,6 +60,12 @@
 		90A283198BCBC864F40426AF /* Pods_RestaurantApp_RestaurantAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantApp_RestaurantAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59504B7C96FCA050E3B7358 /* Pods-RestaurantApp-RestaurantAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp-RestaurantAppUITests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantApp-RestaurantAppUITests/Pods-RestaurantApp-RestaurantAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AF2F69B32955BB2700F04660 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		AF2F69B62955BBE800F04660 /* TopRestoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRestoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF2F69B72955BBE800F04660 /* TopRestoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopRestoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AF2F69BB2955BF6500F04660 /* BukaRestoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BukaRestoResponse.swift; sourceTree = "<group>"; };
+		AF2F69BD2955C07600F04660 /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		AF2F69C12955C41800F04660 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		AF2F69C22955C41800F04660 /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		AF528D152947283100CF81A5 /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF528D182947283100CF81A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF528D1C2947283100CF81A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +130,27 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AF2F69B52955BBD500F04660 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
+				AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */,
+				AF2F69B62955BBE800F04660 /* TopRestoCollectionViewCell.swift */,
+				AF2F69B72955BBE800F04660 /* TopRestoCollectionViewCell.xib */,
+				AF2F69C12955C41800F04660 /* HeaderCollectionReusableView.swift */,
+				AF2F69C22955C41800F04660 /* HeaderCollectionReusableView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF2F69BA2955BF5900F04660 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F69BB2955BF6500F04660 /* BukaRestoResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AF528D0C2947283100CF81A5 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */,
+				AF2F69BA2955BF5900F04660 /* Model */,
 				AFCB690029507B0900188F3B /* Helper */,
 				AF528D48294728B700CF81A5 /* Screen */,
 				AF528D182947283100CF81A5 /* AppDelegate.swift */,
@@ -196,8 +230,8 @@
 		AFE985B42951ACD9008CCC36 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
-				AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */,
+				AF2F69B52955BBD500F04660 /* View */,
+				AF2F69BD2955C07600F04660 /* HomePageViewModel.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -321,8 +355,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF2F69C42955C41800F04660 /* HeaderCollectionReusableView.xib in Resources */,
 				AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */,
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
+				AF2F69B92955BBE800F04660 /* TopRestoCollectionViewCell.xib in Resources */,
 				086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
 				AF528D4C294728D900CF81A5 /* LoginViewController.xib in Resources */,
@@ -457,10 +493,14 @@
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
 				AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */,
 				AFE985BA2951AD3E008CCC36 /* ViewController+Extension.swift in Sources */,
+				AF2F69C32955C41800F04660 /* HeaderCollectionReusableView.swift in Sources */,
 				AF2F69B42955BB2700F04660 /* URLSession+Extension.swift in Sources */,
+				AF2F69BC2955BF6500F04660 /* BukaRestoResponse.swift in Sources */,
 				AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */,
 				AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */,
 				AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */,
+				AF2F69B82955BBE800F04660 /* TopRestoCollectionViewCell.swift in Sources */,
+				AF2F69BE2955C07600F04660 /* HomePageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
