@@ -9,8 +9,8 @@ import Foundation
 
 extension  URLSession {
 	func requestData<T: Codable>(url: URL?,
-							 expecting: T.Type,
-							 completion: @escaping (Result<T, Error>) -> Void) {
+								 expecting: T.Type,
+								 completion: @escaping (Result<T, Error>) -> Void) {
 		//T represent an object that is codable, could be anything AS LONG extend codable
 		
 		/*Parameter
@@ -20,8 +20,8 @@ extension  URLSession {
 		 */
 		
 		guard let url = url else {
-			completion(.failure(NSError()))
 			//error invalid url
+			completion(.failure(NSError()))
 			return
 		}
 		
