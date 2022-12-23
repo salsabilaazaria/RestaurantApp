@@ -80,6 +80,7 @@ class LoginViewController: UIViewController {
 		loginButton.tintColor = UIColor.bukaRestoLightGray
 		loginButton.isUserInteractionEnabled = true
 		loginButton.setAttributedTitle(NSAttributedString.title(text: "Login", color: .bukaRestoDarkGreen), for: .normal)
+		loginButton.addTarget(self, action: #selector(configureButtonTapped), for: .touchUpInside)
 		loginButton.setNeedsLayout()
 		loginButton.layoutIfNeeded()
 	}
@@ -91,8 +92,11 @@ class LoginViewController: UIViewController {
 		
 	}
 	
+	@objc private func configureButtonTapped() {
+		pushToHomePage()
+	}
+	
 	@objc private func keyboardWillShow(_ notification: NSNotification) {
-		
 		guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
 		   return
 		}
