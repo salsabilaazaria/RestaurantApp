@@ -84,7 +84,7 @@ class LoginViewController: UIViewController {
 		loginButton.setNeedsLayout()
 		loginButton.layoutIfNeeded()
 	}
-	
+		
 	private func configureDisabledButton() {
 		loginButton.isUserInteractionEnabled = false
 		loginButton.tintColor = UIColor.bukaRestoDisabledButton
@@ -161,12 +161,23 @@ extension LoginViewController: UITextFieldDelegate {
 		
 		if textField == emailTextField {
 			passwordTextField.becomeFirstResponder()
+		} else if textField == passwordTextField {
+			passwordTextField.resignFirstResponder()
+			
+			guard emailMatch && passwordMatch else {
+				return false
+			}
+			pushToHomePage()
 		}
 		
 		return true
 	}
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
+		validateEmailAndPassword(textField: textField)
+	}
+	
+	private func validateEmailAndPassword(textField: UITextField) {
 		if textField == emailTextField {
 			emailMatch = validateEmail(email: textField.text ?? "")
 			if emailMatch {
