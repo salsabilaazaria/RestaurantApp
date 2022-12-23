@@ -8,20 +8,25 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
-
+	
 	@IBOutlet weak var titleTopResto: UILabel!
 	@IBOutlet weak var firstNumberText: UILabel!
 	@IBOutlet weak var secondNumberText: UILabel!
 	@IBOutlet weak var thirdNumberText: UILabel!
-
+	
+	let viewModel: HomePageViewModel = HomePageViewModel()
 	
 	override func viewDidLoad() {
 		self.view.backgroundColor = UIColor.bukaRestoLightGray
-        super.viewDidLoad()
+		
+		super.viewDidLoad()
+		
 		configureHomeNavBar()
 		configureTitleTopResto()
 		configureNumberText()
-    }
+		
+		viewModel.fetchTopResto()
+	}
 	
 	private func configureHomeNavBar() {
 		useNavBarWithLeftLogo()
