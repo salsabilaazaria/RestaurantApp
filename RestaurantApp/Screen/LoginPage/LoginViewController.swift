@@ -112,6 +112,10 @@ class LoginViewController: UIViewController {
 		self.view.endEditing(true)
 	}
 	
+	private func pushToHomePage() {
+		self.navigationController?.pushViewController(HomePageViewController(), animated: true)
+	}
+	
 	private func validatePassword(password: String) -> Bool{
 		let passwordRegex =
 		// At least one capital letter
