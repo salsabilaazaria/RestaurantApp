@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080CCE4929544DA200C50D00 /* LoginViewController.swift */; };
+		080CCE4C29544DA200C50D00 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080CCE4A29544DA200C50D00 /* LoginViewController.xib */; };
 		086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */; };
 		1AC4BC6BD731C134D128413E /* Pods_RestaurantAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */; };
 		4DE0874C6D1BD70B404C0F0A /* Pods_RestaurantApp_RestaurantAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A283198BCBC864F40426AF /* Pods_RestaurantApp_RestaurantAppUITests.framework */; };
@@ -24,8 +26,6 @@
 		AF528D302947283400CF81A5 /* RestaurantAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D2F2947283400CF81A5 /* RestaurantAppTests.swift */; };
 		AF528D3A2947283400CF81A5 /* RestaurantAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D392947283400CF81A5 /* RestaurantAppUITests.swift */; };
 		AF528D3C2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */; };
-		AF528D4B294728D900CF81A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D49294728D900CF81A5 /* LoginViewController.swift */; };
-		AF528D4C294728D900CF81A5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF528D4A294728D900CF81A5 /* LoginViewController.xib */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
 		AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */; };
@@ -52,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080CCE4929544DA200C50D00 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		080CCE4A29544DA200C50D00 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C343EB85E4A7B499616269C /* Pods-RestaurantAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		51BB6458CF820E04EC1F5531 /* Pods_RestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,8 +79,6 @@
 		AF528D352947283400CF81A5 /* RestaurantAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF528D392947283400CF81A5 /* RestaurantAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppUITests.swift; sourceTree = "<group>"; };
 		AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		AF528D49294728D900CF81A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AF528D4A294728D900CF81A5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		080CCE4829544ABA00C50D00 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				080CCE4929544DA200C50D00 /* LoginViewController.swift */,
+				080CCE4A29544DA200C50D00 /* LoginViewController.xib */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
 		0910103676C930B70A2B0C78 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,9 +218,8 @@
 		AF528D48294728B700CF81A5 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				080CCE4829544ABA00C50D00 /* LoginPage */,
 				AFE985B42951ACD9008CCC36 /* HomePage */,
-				AF528D49294728D900CF81A5 /* LoginViewController.swift */,
-				AF528D4A294728D900CF81A5 /* LoginViewController.xib */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -356,12 +364,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF2F69C42955C41800F04660 /* HeaderCollectionReusableView.xib in Resources */,
+				080CCE4C29544DA200C50D00 /* LoginViewController.xib in Resources */,
 				AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */,
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
 				AF2F69B92955BBE800F04660 /* TopRestoCollectionViewCell.xib in Resources */,
 				086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
-				AF528D4C294728D900CF81A5 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF528D4B294728D900CF81A5 /* LoginViewController.swift in Sources */,
+				080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
 				AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */,
 				AFE985BA2951AD3E008CCC36 /* ViewController+Extension.swift in Sources */,
