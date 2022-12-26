@@ -19,6 +19,8 @@
 		AF2F69BE2955C07600F04660 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69BD2955C07600F04660 /* HomePageViewModel.swift */; };
 		AF2F69C32955C41800F04660 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69C12955C41800F04660 /* HeaderCollectionReusableView.swift */; };
 		AF2F69C42955C41800F04660 /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF2F69C22955C41800F04660 /* HeaderCollectionReusableView.xib */; };
+		AF3C35812959781D0077E00B /* TopRestoFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3C357F2959781D0077E00B /* TopRestoFooterCollectionReusableView.swift */; };
+		AF3C35822959781D0077E00B /* TopRestoFooterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3C35802959781D0077E00B /* TopRestoFooterCollectionReusableView.xib */; };
 		AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D182947283100CF81A5 /* AppDelegate.swift */; };
 		AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D1C2947283100CF81A5 /* ViewController.swift */; };
 		AF528D222947283400CF81A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF528D212947283400CF81A5 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		AF2F69BD2955C07600F04660 /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		AF2F69C12955C41800F04660 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		AF2F69C22955C41800F04660 /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		AF3C357F2959781D0077E00B /* TopRestoFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRestoFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		AF3C35802959781D0077E00B /* TopRestoFooterCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopRestoFooterCollectionReusableView.xib; sourceTree = "<group>"; };
 		AF528D152947283100CF81A5 /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF528D182947283100CF81A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF528D1C2947283100CF81A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,10 +146,9 @@
 		AF2F69B52955BBD500F04660 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AF3C357E295977ED0077E00B /* TopResto */,
 				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
 				AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */,
-				AF2F69B62955BBE800F04660 /* TopRestoCollectionViewCell.swift */,
-				AF2F69B72955BBE800F04660 /* TopRestoCollectionViewCell.xib */,
 				AF2F69C12955C41800F04660 /* HeaderCollectionReusableView.swift */,
 				AF2F69C22955C41800F04660 /* HeaderCollectionReusableView.xib */,
 			);
@@ -158,6 +161,17 @@
 				AF2F69BB2955BF6500F04660 /* BukaRestoResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AF3C357E295977ED0077E00B /* TopResto */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F69B62955BBE800F04660 /* TopRestoCollectionViewCell.swift */,
+				AF2F69B72955BBE800F04660 /* TopRestoCollectionViewCell.xib */,
+				AF3C357F2959781D0077E00B /* TopRestoFooterCollectionReusableView.swift */,
+				AF3C35802959781D0077E00B /* TopRestoFooterCollectionReusableView.xib */,
+			);
+			path = TopResto;
 			sourceTree = "<group>";
 		};
 		AF528D0C2947283100CF81A5 = {
@@ -365,6 +379,7 @@
 			files = (
 				AF2F69C42955C41800F04660 /* HeaderCollectionReusableView.xib in Resources */,
 				080CCE4C29544DA200C50D00 /* LoginViewController.xib in Resources */,
+				AF3C35822959781D0077E00B /* TopRestoFooterCollectionReusableView.xib in Resources */,
 				AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */,
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
 				AF2F69B92955BBE800F04660 /* TopRestoCollectionViewCell.xib in Resources */,
@@ -504,6 +519,7 @@
 				AF2F69C32955C41800F04660 /* HeaderCollectionReusableView.swift in Sources */,
 				AF2F69B42955BB2700F04660 /* URLSession+Extension.swift in Sources */,
 				AF2F69BC2955BF6500F04660 /* BukaRestoResponse.swift in Sources */,
+				AF3C35812959781D0077E00B /* TopRestoFooterCollectionReusableView.swift in Sources */,
 				AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */,
 				AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */,
 				AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */,
