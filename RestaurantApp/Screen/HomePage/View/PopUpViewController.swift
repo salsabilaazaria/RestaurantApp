@@ -9,6 +9,7 @@ import UIKit
 
 class PopUpViewController: UIViewController {
 
+	@IBOutlet weak var dismissTapArea: UIView!
 	@IBOutlet weak var popUpContainer: UIView!
 	@IBOutlet weak var popUpLabel: UILabel!
 	
@@ -28,7 +29,7 @@ class PopUpViewController: UIViewController {
 	
 	private func configureTapGesture() {
 		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(exitPopUp))
-		self.view.addGestureRecognizer(tapGestureRecognizer)
+		self.dismissTapArea.addGestureRecognizer(tapGestureRecognizer)
 	}
 	
 	@objc func exitPopUp(_ sender: UITapGestureRecognizer) {

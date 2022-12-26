@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewController" customModule="RestaurantApp" customModuleProvider="target">
             <connections>
+                <outlet property="dismissTapArea" destination="reU-oL-KH9" id="Nke-WB-7NU"/>
                 <outlet property="popUpContainer" destination="Gi4-gZ-C5X" id="fUr-fJ-7SX"/>
                 <outlet property="popUpLabel" destination="L8f-wX-Wlx" id="05x-ix-PhW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,6 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reU-oL-KH9" userLabel="tap area">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gi4-gZ-C5X" userLabel="Pop Up View">
                     <rect key="frame" x="87" y="384" width="240" height="128"/>
                     <subviews>
@@ -43,8 +47,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Gi4-gZ-C5X" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="26d-Lc-cIf"/>
-                <constraint firstItem="Gi4-gZ-C5X" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yuu-Ig-46X"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="reU-oL-KH9" secondAttribute="bottom" id="5Ly-lH-BHo"/>
+                <constraint firstItem="reU-oL-KH9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="F7Z-DH-Vzr"/>
+                <constraint firstItem="Gi4-gZ-C5X" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KNT-Ap-hDs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="reU-oL-KH9" secondAttribute="trailing" id="MyH-II-Nry"/>
+                <constraint firstItem="Gi4-gZ-C5X" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hPB-1H-Gft"/>
+                <constraint firstItem="reU-oL-KH9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kDL-dl-3tc"/>
             </constraints>
             <point key="canvasLocation" x="139" y="72"/>
         </view>
