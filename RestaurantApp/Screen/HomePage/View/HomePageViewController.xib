@@ -11,9 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePageViewController" customModule="RestaurantApp" customModuleProvider="target">
             <connections>
                 <outlet property="homeCollectionView" destination="dMA-dC-hbX" id="fqb-es-Xsd"/>
-                <outlet property="popUpBackground" destination="D5l-EQ-LMj" id="3ur-fi-9cp"/>
-                <outlet property="popUpLabel" destination="Vnp-nI-iZ4" id="KWb-nT-Uvu"/>
-                <outlet property="popUpSheerContainer" destination="Jqk-aW-AOb" id="n8U-vB-a44"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,45 +29,12 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqk-aW-AOb" userLabel="Pop Up Container">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5l-EQ-LMj" userLabel="Pop Up View">
-                            <rect key="frame" x="87" y="345" width="240" height="128"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnp-nI-iZ4" userLabel="Pop Up Label">
-                                    <rect key="frame" x="16" y="53.5" width="208" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="Vnp-nI-iZ4" firstAttribute="leading" secondItem="D5l-EQ-LMj" secondAttribute="leading" constant="16" id="C4l-A3-eXp"/>
-                                <constraint firstItem="Vnp-nI-iZ4" firstAttribute="centerY" secondItem="D5l-EQ-LMj" secondAttribute="centerY" id="Zqu-eN-quy"/>
-                                <constraint firstAttribute="trailing" secondItem="Vnp-nI-iZ4" secondAttribute="trailing" constant="16" id="eXs-S9-myW"/>
-                                <constraint firstAttribute="width" constant="240" id="hyi-1o-SQE"/>
-                                <constraint firstAttribute="height" constant="128" id="yVd-0B-KUj"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                    <constraints>
-                        <constraint firstItem="D5l-EQ-LMj" firstAttribute="centerY" secondItem="Jqk-aW-AOb" secondAttribute="centerY" id="3e5-sf-wkp"/>
-                        <constraint firstItem="D5l-EQ-LMj" firstAttribute="centerX" secondItem="Jqk-aW-AOb" secondAttribute="centerX" id="LKY-BN-S1b"/>
-                    </constraints>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jqk-aW-AOb" secondAttribute="trailing" id="2BI-WG-IPP"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Jqk-aW-AOb" secondAttribute="bottom" id="6Tl-LC-VwL"/>
                 <constraint firstItem="dMA-dC-hbX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="C8g-Kp-8BE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dMA-dC-hbX" secondAttribute="bottom" id="JwX-Bd-Vdb"/>
-                <constraint firstItem="Jqk-aW-AOb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M7T-Ei-OSv"/>
-                <constraint firstItem="Jqk-aW-AOb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="MQY-pC-CpW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dMA-dC-hbX" secondAttribute="trailing" id="N6a-EZ-sEy"/>
                 <constraint firstItem="dMA-dC-hbX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gH4-f0-BTC"/>
             </constraints>
@@ -78,9 +42,6 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -10,10 +10,7 @@ import UIKit
 class HomePageViewController: UIViewController {
 	
 	@IBOutlet weak var homeCollectionView: UICollectionView!
-	@IBOutlet weak var popUpSheerContainer: UIView!
-	@IBOutlet weak var popUpBackground: UIView!
-	@IBOutlet weak var popUpLabel: UILabel!
-	
+	private let popUpView: PopUpViewController = PopUpViewController()
 
 	private let viewModel: HomePageViewModel = HomePageViewModel()
 	
@@ -30,9 +27,6 @@ class HomePageViewController: UIViewController {
 		configureHomeNavBar()
 		setupCollectionView()
 		configureViewModel()
-		
-		popUpSheerContainer.isHidden = true
-		configurePopUp()
 	}
 	
 	private func configureHomeNavBar() {
@@ -59,14 +53,6 @@ class HomePageViewController: UIViewController {
 		}
 	}
 	
-	private func configurePopUp() {
-		popUpBackground.layer.cornerRadius = 4.0
-		popUpLabel.attributedText = NSAttributedString.title(text: "Under Maintenance", color: .bukaRestoDarkGreen)
-		popUpSheerContainer.backgroundColor = UIColor(red: 79/255.0, green: 79/255.0, blue: 79/255.0, alpha: 0.5)
-		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(exitPopUp))
-		popUpSheerContainer.addGestureRecognizer(tapGestureRecognizer)
-	}
-	
 	private func setupCollectionView() {
 		homeCollectionView.backgroundColor = .bukaRestoLightGray
 		homeCollectionView.dataSource = self
@@ -82,13 +68,10 @@ class HomePageViewController: UIViewController {
 	}
 	
 	@objc func seeMoreTapped(_ sender: UITapGestureRecognizer) {
-		self.popUpSheerContainer.isHidden = false
+		popUpView.modalPresentationStyle = .overFullScreen
+		self.present(popUpView, animated: false, completion: nil)
 	}
-	
-	@objc func exitPopUp(_ sender: UITapGestureRecognizer) {
-		self.popUpSheerContainer.isHidden = true
-	}
-	
+
 }
 
 
