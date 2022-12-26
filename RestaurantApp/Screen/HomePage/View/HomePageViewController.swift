@@ -10,7 +10,8 @@ import UIKit
 class HomePageViewController: UIViewController {
 	
 	@IBOutlet weak var homeCollectionView: UICollectionView!
-	
+	private let popUpView: PopUpViewController = PopUpViewController()
+
 	private let viewModel: HomePageViewModel = HomePageViewModel()
 	
 	private let cellWidth = UIScreen.main.bounds.width
@@ -18,6 +19,8 @@ class HomePageViewController: UIViewController {
 	
 	let topRestoCellIdentifier = "TopRestoCollectionViewCell"
 	let headerIdentfier = "HeaderCollectionReusableView"
+	let footerIdentifier = "TopRestoFooterCollectionReusableView"
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		viewModel.fetchTopResto()
@@ -61,9 +64,14 @@ class HomePageViewController: UIViewController {
 	private func registerCell() {
 		homeCollectionView.register(UINib.init(nibName: headerIdentfier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentfier)
 		homeCollectionView.register(UINib(nibName: topRestoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: topRestoCellIdentifier)
+		homeCollectionView.register(UINib.init(nibName: footerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerIdentifier)
 	}
 	
-	
+	@objc func seeMoreTapped(_ sender: UITapGestureRecognizer) {
+		popUpView.modalPresentationStyle = .overFullScreen
+		self.present(popUpView, animated: false, completion: nil)
+	}
+
 }
 
 
@@ -81,6 +89,10 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 		return CGSize(width: collectionView.frame.width, height: 40)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+		return CGSize(width: collectionView.frame.width, height: 30)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -111,6 +123,17 @@ extension HomePageViewController: UICollectionViewDataSource {
 			}
 			
 			return headerView
+		case UICollectionView.elementKindSectionFooter:
+			let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
+			
+			if indexPath.section == 0 {
+				footerView.configureFooterLabel(text: "See More >")
+				
+				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
+				footerView.addGestureRecognizer(tapGestureRecognizer)
+			}
+			
+			return footerView
 			
 		default:
 			assert(false, "Unexpected element kind")
