@@ -10,7 +10,11 @@ import UIKit
 class HomePageViewController: UIViewController {
 	
 	@IBOutlet weak var homeCollectionView: UICollectionView!
+	@IBOutlet weak var popUpSheerContainer: UIView!
+	@IBOutlet weak var popUpBackground: UIView!
+	@IBOutlet weak var popUpLabel: UILabel!
 	
+
 	private let viewModel: HomePageViewModel = HomePageViewModel()
 	
 	private let cellWidth = UIScreen.main.bounds.width
@@ -26,6 +30,9 @@ class HomePageViewController: UIViewController {
 		configureHomeNavBar()
 		setupCollectionView()
 		configureViewModel()
+		
+		popUpSheerContainer.isHidden = true
+		configurePopUp()
 	}
 	
 	private func configureHomeNavBar() {
@@ -52,6 +59,14 @@ class HomePageViewController: UIViewController {
 		}
 	}
 	
+	private func configurePopUp() {
+		popUpBackground.layer.cornerRadius = 4.0
+		popUpLabel.attributedText = NSAttributedString.title(text: "Under Maintenance", color: .bukaRestoDarkGreen)
+		popUpSheerContainer.backgroundColor = UIColor(red: 79/255.0, green: 79/255.0, blue: 79/255.0, alpha: 0.5)
+		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(exitPopUp))
+		popUpSheerContainer.addGestureRecognizer(tapGestureRecognizer)
+	}
+	
 	private func setupCollectionView() {
 		homeCollectionView.backgroundColor = .bukaRestoLightGray
 		homeCollectionView.dataSource = self
@@ -64,6 +79,14 @@ class HomePageViewController: UIViewController {
 		homeCollectionView.register(UINib.init(nibName: headerIdentfier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentfier)
 		homeCollectionView.register(UINib(nibName: topRestoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: topRestoCellIdentifier)
 		homeCollectionView.register(UINib.init(nibName: footerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerIdentifier)
+	}
+	
+	@objc func seeMoreTapped(_ sender: UITapGestureRecognizer) {
+		self.popUpSheerContainer.isHidden = false
+	}
+	
+	@objc func exitPopUp(_ sender: UITapGestureRecognizer) {
+		self.popUpSheerContainer.isHidden = true
 	}
 	
 }
@@ -122,6 +145,9 @@ extension HomePageViewController: UICollectionViewDataSource {
 			
 			if indexPath.section == 0 {
 				footerView.configureFooterLabel(text: "See More >")
+				
+				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
+				footerView.addGestureRecognizer(tapGestureRecognizer)
 			}
 			
 			return footerView
