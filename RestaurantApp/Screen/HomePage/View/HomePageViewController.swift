@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomePageViewController: UIViewController {
 	
@@ -16,17 +17,59 @@ class HomePageViewController: UIViewController {
 	
 	private let cellWidth = UIScreen.main.bounds.width
 	
+	private let notificationCenter = NotificationCenter.default
+	private var observer: NSObjectProtocol?
+	
 	
 	let topRestoCellIdentifier = "TopRestoCollectionViewCell"
 	let headerIdentfier = "HeaderCollectionReusableView"
 	let footerIdentifier = "TopRestoFooterCollectionReusableView"
 	
+	var alertView: UIAlertController {
+		let alert = UIAlertController(title: "Location Service off", message: "", preferredStyle: .alert)
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+			self.navigationController?.popViewController(animated: true)
+		}
+		
+		let action = UIAlertAction(title: "Turn on in Settings", style: .default) { _ in
+			guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+			
+			if UIApplication.shared.canOpenURL(settingsUrl) {
+				UIApplication.shared.open(settingsUrl, completionHandler: nil)
+			}
+		}
+		
+		alert.addAction(cancel)
+		alert.addAction(action)
+		
+		return alert
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		LocationManager.shared.checkLocationService()
+		observerNotification()
+		
+		observer = notificationCenter.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main, using: { notification in
+			print("willEnterForegroundNotification")
+			LocationManager.shared.checkLocationService()
+		})
+		
+		
 		viewModel.fetchTopResto()
 		configureHomeNavBar()
 		setupCollectionView()
 		configureViewModel()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		notificationCenter.removeObserver(self)
+		
+		if let observer = observer {
+			notificationCenter.removeObserver(observer)
+		}
 	}
 	
 	private func configureHomeNavBar() {
@@ -71,13 +114,30 @@ class HomePageViewController: UIViewController {
 		popUpView.modalPresentationStyle = .overFullScreen
 		self.present(popUpView, animated: false, completion: nil)
 	}
-
+	
+	private func observerNotification() {
+		notificationCenter.addObserver(forName: .sharedLocation, object: nil, queue: .main) { notification in
+			
+			guard let object = notification.object as? [String: Any] else { return }
+			guard let error = object["error"] as? Bool else { return }
+			
+			if error {
+				print("error to access location service.")
+				self.present(self.alertView, animated: true, completion: nil)
+			} else {
+				guard let location = object["location"] as? CLLocation else { return }
+				print("DIM LAT = \(location.coordinate.latitude)")
+				print("DIM LONG = \(location.coordinate.longitude)")
+			}
+			
+		}
+	}
 }
 
 
 extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 1
+		return 2
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -120,6 +180,8 @@ extension HomePageViewController: UICollectionViewDataSource {
 			
 			if indexPath.section == 0 {
 				headerView.configureTitleLabel(text: "Top Resto")
+			} else if indexPath.section == 1 {
+				headerView.configureTitleLabel(text: "Nearby Resto")
 			}
 			
 			return headerView
@@ -143,20 +205,17 @@ extension HomePageViewController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
-		if indexPath.section == 0 {
+//		if indexPath.section == 0 {
 			guard let topRestoCell = collectionView.dequeueReusableCell(withReuseIdentifier: topRestoCellIdentifier, for: indexPath) as? TopRestoCollectionViewCell else {
 				return UICollectionViewCell()
 			}
 			let topRestoData = viewModel.topResto?.data?[indexPath.row]
 			topRestoCell.configureTopRestoLabel(number: "\(indexPath.row + 1)", restoName: topRestoData?.name ?? "Top Resto Cell \(indexPath.row + 1)")
 			return topRestoCell
-		}
+//		}
 		
-		return UICollectionViewCell()
+//		return UICollectionViewCell()
 		
 	}
 	
 }
-
-
-
