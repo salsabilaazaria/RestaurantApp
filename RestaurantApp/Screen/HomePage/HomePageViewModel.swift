@@ -12,7 +12,7 @@ class HomePageViewModel {
 	var onReloadNearbySection: (() -> Void)?
 	var onReloadAllRestoSection: (() -> Void)?
 	
-	var topResto: TopResto? = nil {
+	var topResto: BukaRestoBaseResponse? = nil {
 		didSet {
 			self.onReload?()
 		}
@@ -36,7 +36,7 @@ class HomePageViewModel {
 	
 	func fetchTopResto() {
 		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/restaurant/top")
-		URLSession.shared.requestData(url: url, expecting: TopResto.self) { result in
+		URLSession.shared.requestData(url: url, expecting: BukaRestoBaseResponse.self) { result in
 			switch result {
 			case .success(let topResto):
 				self.topResto = topResto
