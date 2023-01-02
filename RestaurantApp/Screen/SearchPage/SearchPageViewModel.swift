@@ -9,6 +9,7 @@ import Foundation
 
 class SearchPageViewModel {
 	var onReloadSearchTable: (() -> Void)?
+	var onReloadTopCollection: (() -> Void)?
 	
 	var searchResult: [Resto]? = nil {
 		didSet {
@@ -16,6 +17,8 @@ class SearchPageViewModel {
 		}
 	}
 	
+	let topSearchArray = ["Ramen", "All You Can Eat", "Yakiniku", "Cafe", "Coffee", "Sushi", "Indomie", "Ayam Bakar Cobek", "Sambel Bakar"]
+
 	init() {
 
 	}
@@ -31,7 +34,6 @@ class SearchPageViewModel {
 			switch result {
 			case .success(let baseResult):
 				self.searchResult = baseResult.data
-				print("SAL search result=\(self.searchResult)")
 			case .failure(let error):
 				print("SAL error\(error)")
 			}

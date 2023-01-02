@@ -20,9 +20,6 @@ class SearchPageViewController: UIViewController {
 	
 	private let topSearchCellIdentifier = "TopSearchCollectionViewCell"
 	
-	let topSearchArray = ["Ramen", "All You Can Eat", "Yakiniku", "Cafe", "Coffee", "Sushi", "Indomie", "Ayam Bakar Cobek", "Sambel Bakar"]
-
-	
 	let isSearching: Bool = false
 	
 	private let viewModel: SearchPageViewModel = SearchPageViewModel()
@@ -36,6 +33,7 @@ class SearchPageViewController: UIViewController {
 		configureRightView()
 		configureTableView()
 		configureCollectionView()
+		
 		configureViewModel()
 		
 		configuerInitialView()
@@ -163,7 +161,7 @@ extension SearchPageViewController: UITableViewDataSource {
 
 extension SearchPageViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return topSearchArray.count
+		return viewModel.topSearchArray.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -171,7 +169,7 @@ extension SearchPageViewController: UICollectionViewDataSource {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topSearchCellIdentifier, for: indexPath) as? TopSearchCollectionViewCell else {
 			return UICollectionViewCell()
 		}
-		cell.setTopSearchLabel(text: topSearchArray[indexPath.row])
+		cell.setTopSearchLabel(text: viewModel.topSearchArray[indexPath.row])
 		
 		return cell
 	}
