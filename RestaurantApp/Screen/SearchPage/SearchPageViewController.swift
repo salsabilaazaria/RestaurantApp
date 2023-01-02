@@ -23,8 +23,6 @@ class SearchPageViewController: UIViewController {
 	let topSearchArray = ["Ramen", "All You Can Eat", "Yakiniku", "Cafe", "Coffee", "Sushi", "Indomie", "Ayam Bakar Cobek", "Sambel Bakar"]
 	
 	let isSearching: Bool = false
-	
-
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +62,6 @@ class SearchPageViewController: UIViewController {
 		let cancelTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(cancelTapped))
 		searchBarLabel.isUserInteractionEnabled = true
 		searchBarLabel.addGestureRecognizer(cancelTapRecognizer)
-
 	}
 	
 	@objc private func searchTapped() {

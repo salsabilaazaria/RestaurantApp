@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TopResto: Codable {
+struct BukaRestoBaseResponse: Codable {
 	let message: String?
 	let code: Int?
 	let data: [Resto]?

@@ -16,7 +16,6 @@ class HomePageViewController: UIViewController {
 	
 	private let cellWidth = UIScreen.main.bounds.width
 	
-	
 	let topRestoCellIdentifier = "TopRestoCollectionViewCell"
 	let headerIdentfier = "HeaderCollectionReusableView"
 	let footerIdentifier = "TopRestoFooterCollectionReusableView"
@@ -38,10 +37,15 @@ class HomePageViewController: UIViewController {
 		scanButton.setImage(UIImage(named: "scan-icon.png"), for: .normal)
 		let searchButton = UIButton(type: .custom)
 		searchButton.setImage(UIImage(named: "search-icon.png"), for: .normal)
+		searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
 		
 		navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: settingButton),
 											  UIBarButtonItem(customView: scanButton),
 											  UIBarButtonItem(customView: searchButton)]
+	}
+	
+	@objc private func searchButtonTapped() {
+		self.navigationController?.pushViewController(SearchPageViewController(), animated: true)
 	}
 	
 	private func configureViewModel() {
