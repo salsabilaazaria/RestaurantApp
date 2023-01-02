@@ -26,9 +26,9 @@ class SearchPageViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		useDarkGreenStatusBar()
-	
-		self.navigationController?.navigationBar.isHidden = true
+		useBukaRestoBaseNavBar()
+		title = "Search"
+//		self.navigationController?.navigationBar.isHidden = true
 		
 		configureSearchBar()
 		configureRightView()
