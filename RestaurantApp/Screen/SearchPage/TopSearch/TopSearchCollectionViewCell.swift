@@ -14,6 +14,7 @@ class TopSearchCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
 		backgroundColor = .white
+		layer.cornerRadius = 4.0
         // Initialization code
     }
 	
