@@ -15,6 +15,10 @@ extension UIViewController {
 		UIApplication.shared.keyWindow?.addSubview(statusBar)
 	}
 	
+	func useDarkGreenNavBar() {
+		navigationController?.navigationBar.backgroundColor = UIColor.bukaRestoDarkGreen
+	}
+	
 	func useNavBarWithLeftLogo() {
 		useDarkGreenStatusBar()
 		navigationController?.navigationBar.backgroundColor = UIColor.bukaRestoDarkGreen
