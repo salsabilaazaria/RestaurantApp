@@ -39,6 +39,7 @@
 		AF528D302947283400CF81A5 /* RestaurantAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D2F2947283400CF81A5 /* RestaurantAppTests.swift */; };
 		AF528D3A2947283400CF81A5 /* RestaurantAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D392947283400CF81A5 /* RestaurantAppUITests.swift */; };
 		AF528D3C2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */; };
+		AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7207D62962AF2600E2FB0C /* SearchPageViewModel.swift */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
 		AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */; };
@@ -108,6 +109,7 @@
 		AF528D352947283400CF81A5 /* RestaurantAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF528D392947283400CF81A5 /* RestaurantAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppUITests.swift; sourceTree = "<group>"; };
 		AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AF7207D62962AF2600E2FB0C /* SearchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewModel.swift; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				AFFB2E75295C0FC1008F1F77 /* TopSearch */,
 				AF3C358E295AB0CD0077E00B /* SearchPageViewController.swift */,
 				AF3C358F295AB0CD0077E00B /* SearchPageViewController.xib */,
+				AF7207D62962AF2600E2FB0C /* SearchPageViewModel.swift */,
 			);
 			path = SearchPage;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */,
+				AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
 				08B167D6295D7C1700721067 /* LocationManager.swift in Sources */,
 				AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */,
