@@ -188,16 +188,6 @@ extension HomePageViewController: UICollectionViewDataSource {
 			
 			return headerView
 		case UICollectionView.elementKindSectionFooter:
-//			let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
-//
-//			if indexPath.section == 0 {
-//				footerView.configureFooterLabel(text: "See More >")
-//
-//				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
-//				footerView.addGestureRecognizer(tapGestureRecognizer)
-//				return footerView
-//			}
-			
 			if indexPath.section == 0 {
 				let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
 				footerView.configureFooterLabel(text: "See More >")

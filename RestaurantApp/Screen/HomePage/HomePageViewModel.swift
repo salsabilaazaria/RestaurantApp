@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 class HomePageViewModel {
 	var onReload: (() -> Void)?
@@ -59,17 +58,5 @@ class HomePageViewModel {
 				print("DIM error\(error)")
 			}
 		}
-	}
-	
-	func getDistance(currentLat: Double, currentLong: Double, modelLat: Double, modelLong: Double) -> Double {
-		
-		let myLocation = CLLocation(latitude: currentLat, longitude: currentLong)
-		let modelLocation = CLLocation(latitude: modelLat, longitude: modelLong)
-		
-		let distance = myLocation.distance(from: modelLocation) / 1000
-		
-		print(String(format: "The distance to my buddy is %.01fkm", distance))
-		
-		return distance
 	}
 }

@@ -16,13 +16,7 @@ class NearbyRestoSectionCollectionView: UICollectionViewCell {
 	@IBOutlet weak var nearbyRestoCollectionView: UICollectionView!
 	
 	let nearbyCollectionViewCellIdentifier = "NearbyRestoCollectionViewCell"
-		
-//	var myLocation: MyLocation? = nil {
-//		didSet {
-//			self.nearbyRestoCollectionView.reloadData()
-//		}
-//	}
-		
+			
 	var viewModel: HomePageViewModel? {
 		didSet {
 			configureViewModel()
@@ -31,7 +25,7 @@ class NearbyRestoSectionCollectionView: UICollectionViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+		
 		setupCollectionView()
     }
 		
@@ -49,7 +43,6 @@ class NearbyRestoSectionCollectionView: UICollectionViewCell {
 			DispatchQueue.main.async {
 				self?.nearbyRestoCollectionView.reloadData()
 			}
-			
 		}
 	}
 	
