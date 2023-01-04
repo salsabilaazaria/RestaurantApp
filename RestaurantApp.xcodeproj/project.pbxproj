@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080CCE4929544DA200C50D00 /* LoginViewController.swift */; };
 		080CCE4C29544DA200C50D00 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080CCE4A29544DA200C50D00 /* LoginViewController.xib */; };
+		0815C8832962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0815C8812962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.swift */; };
+		0815C8842962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0815C8822962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib */; };
+		0815C8892962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0815C8872962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift */; };
+		0815C88A2962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0815C8882962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib */; };
 		086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */; };
+		08B167D6295D7C1700721067 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B167D5295D7C1700721067 /* LocationManager.swift */; };
 		1AC4BC6BD731C134D128413E /* Pods_RestaurantAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */; };
 		4DE0874C6D1BD70B404C0F0A /* Pods_RestaurantApp_RestaurantAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A283198BCBC864F40426AF /* Pods_RestaurantApp_RestaurantAppUITests.framework */; };
 		AF2F69B42955BB2700F04660 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F69B32955BB2700F04660 /* URLSession+Extension.swift */; };
@@ -63,7 +68,12 @@
 /* Begin PBXFileReference section */
 		080CCE4929544DA200C50D00 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		080CCE4A29544DA200C50D00 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		0815C8812962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestoCollectionViewCell.swift; sourceTree = "<group>"; };
+		0815C8822962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyRestoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0815C8872962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestoSectionCollectionView.swift; sourceTree = "<group>"; };
+		0815C8882962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyRestoSectionCollectionView.xib; sourceTree = "<group>"; };
 		086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08B167D5295D7C1700721067 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1C343EB85E4A7B499616269C /* Pods-RestaurantAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		51BB6458CF820E04EC1F5531 /* Pods_RestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E8397D7E690C7F9ADCD4FB /* Pods-RestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.release.xcconfig"; path = "Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +154,17 @@
 			path = LoginPage;
 			sourceTree = "<group>";
 		};
+		0815C87A2962D7C50081B7D3 /* NearbyResto */ = {
+			isa = PBXGroup;
+			children = (
+				0815C8812962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.swift */,
+				0815C8822962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib */,
+				0815C8872962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift */,
+				0815C8882962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib */,
+			);
+			path = NearbyResto;
+			sourceTree = "<group>";
+		};
 		0910103676C930B70A2B0C78 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +181,7 @@
 		AF2F69B52955BBD500F04660 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0815C87A2962D7C50081B7D3 /* NearbyResto */,
 				AF3C357E295977ED0077E00B /* TopResto */,
 				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
 				AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */,
@@ -231,6 +253,7 @@
 				AF528D48294728B700CF81A5 /* Screen */,
 				AF528D182947283100CF81A5 /* AppDelegate.swift */,
 				AF528D1C2947283100CF81A5 /* ViewController.swift */,
+				08B167D5295D7C1700721067 /* LocationManager.swift */,
 				AF528D212947283400CF81A5 /* Assets.xcassets */,
 				AF528D232947283400CF81A5 /* LaunchScreen.storyboard */,
 				AF528D262947283400CF81A5 /* Info.plist */,
@@ -417,6 +440,7 @@
 				AF2F69C42955C41800F04660 /* HeaderCollectionReusableView.xib in Resources */,
 				080CCE4C29544DA200C50D00 /* LoginViewController.xib in Resources */,
 				AFFB2E79295C1083008F1F77 /* TopSearchCollectionViewCell.xib in Resources */,
+				0815C8842962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib in Resources */,
 				AF3C35822959781D0077E00B /* TopRestoFooterCollectionReusableView.xib in Resources */,
 				AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */,
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
@@ -425,6 +449,7 @@
 				AF3C3591295AB0CD0077E00B /* SearchPageViewController.xib in Resources */,
 				086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
+				0815C88A2962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,13 +579,16 @@
 			files = (
 				080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
+				08B167D6295D7C1700721067 /* LocationManager.swift in Sources */,
 				AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */,
 				AFE985BA2951AD3E008CCC36 /* ViewController+Extension.swift in Sources */,
 				AF2F69C32955C41800F04660 /* HeaderCollectionReusableView.swift in Sources */,
 				AF2F69B42955BB2700F04660 /* URLSession+Extension.swift in Sources */,
 				AF3C3590295AB0CD0077E00B /* SearchPageViewController.swift in Sources */,
+				0815C8892962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift in Sources */,
 				AF2F69BC2955BF6500F04660 /* BukaRestoResponse.swift in Sources */,
 				AFFB2E78295C1083008F1F77 /* TopSearchCollectionViewCell.swift in Sources */,
+				0815C8832962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.swift in Sources */,
 				AF3C35812959781D0077E00B /* TopRestoFooterCollectionReusableView.swift in Sources */,
 				AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */,
 				AF3C35872959A96A0077E00B /* PopUpViewController.swift in Sources */,

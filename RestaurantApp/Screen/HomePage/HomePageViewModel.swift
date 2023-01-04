@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import CoreLocation
 
 class HomePageViewModel {
 	var onReload: (() -> Void)?
+	var onReloadNearbySection: (() -> Void)?
 	
 	var topResto: TopResto? = nil {
 		didSet {
@@ -16,6 +18,12 @@ class HomePageViewModel {
 		}
 	}
 	
+	var nearbyResto: NearbyResto? = nil {
+		didSet {
+			self.onReloadNearbySection?()
+		}
+	}
+		
 	init() {
 
 	}
@@ -32,5 +40,36 @@ class HomePageViewModel {
 			}
 		}
 	}
+	
+	func fetchNearbyResto(latitude: String, longitude: String) {
+		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/restaurant/nearme?latitude=\(latitude)&longitude=\(longitude)")
+		URLSession.shared.requestData(url: url, expecting: NearbyResto.self) { result in
 
+			switch result {
+			case .success(let nearbyResto):
+				var sortedData = nearbyResto.data?.sorted(by: { leftItem, righItem in
+					return leftItem.distance < righItem.distance
+				})
+				
+				let newNearbyResto = NearbyResto(message: nearbyResto.message, code: nearbyResto.code, data: sortedData)
+				
+				self.nearbyResto = newNearbyResto
+				print("DIM \(nearbyResto)")
+			case .failure(let error):
+				print("DIM error\(error)")
+			}
+		}
+	}
+	
+	func getDistance(currentLat: Double, currentLong: Double, modelLat: Double, modelLong: Double) -> Double {
+		
+		let myLocation = CLLocation(latitude: currentLat, longitude: currentLong)
+		let modelLocation = CLLocation(latitude: modelLat, longitude: modelLong)
+		
+		let distance = myLocation.distance(from: modelLocation) / 1000
+		
+		print(String(format: "The distance to my buddy is %.01fkm", distance))
+		
+		return distance
+	}
 }

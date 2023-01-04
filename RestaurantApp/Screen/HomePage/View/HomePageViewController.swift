@@ -19,11 +19,11 @@ class HomePageViewController: UIViewController {
 	
 	private let notificationCenter = NotificationCenter.default
 	private var observer: NSObjectProtocol?
-	
-	
+		
 	let topRestoCellIdentifier = "TopRestoCollectionViewCell"
 	let headerIdentfier = "HeaderCollectionReusableView"
 	let footerIdentifier = "TopRestoFooterCollectionReusableView"
+	let nearbyRestoCollectionIdentifier = "NearbyRestoSectionCollectionView"
 	
 	var alertView: UIAlertController {
 		let alert = UIAlertController(title: "Location Service off", message: "", preferredStyle: .alert)
@@ -50,13 +50,7 @@ class HomePageViewController: UIViewController {
 		
 		LocationManager.shared.checkLocationService()
 		observerNotification()
-		
-		observer = notificationCenter.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main, using: { notification in
-			print("willEnterForegroundNotification")
-			LocationManager.shared.checkLocationService()
-		})
-		
-		
+	
 		viewModel.fetchTopResto()
 		configureHomeNavBar()
 		setupCollectionView()
@@ -107,6 +101,7 @@ class HomePageViewController: UIViewController {
 	private func registerCell() {
 		homeCollectionView.register(UINib.init(nibName: headerIdentfier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentfier)
 		homeCollectionView.register(UINib(nibName: topRestoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: topRestoCellIdentifier)
+		homeCollectionView.register(UINib(nibName: nearbyRestoCollectionIdentifier, bundle: nil), forCellWithReuseIdentifier: nearbyRestoCollectionIdentifier)
 		homeCollectionView.register(UINib.init(nibName: footerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerIdentifier)
 	}
 	
@@ -126,8 +121,11 @@ class HomePageViewController: UIViewController {
 				self.present(self.alertView, animated: true, completion: nil)
 			} else {
 				guard let location = object["location"] as? CLLocation else { return }
-				print("DIM LAT = \(location.coordinate.latitude)")
-				print("DIM LONG = \(location.coordinate.longitude)")
+					
+				let lat = (location.coordinate.latitude)
+				let long = (location.coordinate.longitude)
+
+				self.viewModel.fetchNearbyResto(latitude: String(format: "%f", lat), longitude: String(format: "%f", long))
 			}
 			
 		}
@@ -168,7 +166,11 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 extension HomePageViewController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 3
+		if section == 0 {
+			return 3
+		} else {
+			return 1
+		}
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -186,16 +188,33 @@ extension HomePageViewController: UICollectionViewDataSource {
 			
 			return headerView
 		case UICollectionView.elementKindSectionFooter:
-			let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
+//			let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
+//
+//			if indexPath.section == 0 {
+//				footerView.configureFooterLabel(text: "See More >")
+//
+//				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
+//				footerView.addGestureRecognizer(tapGestureRecognizer)
+//				return footerView
+//			}
 			
 			if indexPath.section == 0 {
+				let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
 				footerView.configureFooterLabel(text: "See More >")
 				
 				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
 				footerView.addGestureRecognizer(tapGestureRecognizer)
+				
+				return footerView
+			} else {
+				let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
+				footerView.configureFooterLabel(text: "")
+				
+				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
+				footerView.addGestureRecognizer(tapGestureRecognizer)
+				
+				return footerView
 			}
-			
-			return footerView
 			
 		default:
 			assert(false, "Unexpected element kind")
@@ -205,16 +224,25 @@ extension HomePageViewController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
-//		if indexPath.section == 0 {
+		if indexPath.section == 0 {
 			guard let topRestoCell = collectionView.dequeueReusableCell(withReuseIdentifier: topRestoCellIdentifier, for: indexPath) as? TopRestoCollectionViewCell else {
 				return UICollectionViewCell()
 			}
 			let topRestoData = viewModel.topResto?.data?[indexPath.row]
 			topRestoCell.configureTopRestoLabel(number: "\(indexPath.row + 1)", restoName: topRestoData?.name ?? "Top Resto Cell \(indexPath.row + 1)")
 			return topRestoCell
-//		}
+		}
+		else if indexPath.section == 1 {
+			guard let nearbyRestoCell = collectionView.dequeueReusableCell(withReuseIdentifier: nearbyRestoCollectionIdentifier, for: indexPath) as? NearbyRestoSectionCollectionView else {
+				return UICollectionViewCell()
+			}
+			
+			nearbyRestoCell.viewModel = viewModel
+			
+			return nearbyRestoCell
+		}
 		
-//		return UICollectionViewCell()
+		return UICollectionViewCell()
 		
 	}
 	
