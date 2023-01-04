@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomePageViewController: UIViewController {
 	
@@ -16,17 +17,53 @@ class HomePageViewController: UIViewController {
 	
 	private let cellWidth = UIScreen.main.bounds.width
 	
-	
+	private let notificationCenter = NotificationCenter.default
+	private var observer: NSObjectProtocol?
+		
 	let topRestoCellIdentifier = "TopRestoCollectionViewCell"
 	let headerIdentfier = "HeaderCollectionReusableView"
 	let footerIdentifier = "TopRestoFooterCollectionReusableView"
+	let nearbyRestoCollectionIdentifier = "NearbyRestoSectionCollectionView"
+	
+	var alertView: UIAlertController {
+		let alert = UIAlertController(title: "Location Service off", message: "", preferredStyle: .alert)
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+			self.navigationController?.popViewController(animated: true)
+		}
+		
+		let action = UIAlertAction(title: "Turn on in Settings", style: .default) { _ in
+			guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+			
+			if UIApplication.shared.canOpenURL(settingsUrl) {
+				UIApplication.shared.open(settingsUrl, completionHandler: nil)
+			}
+		}
+		
+		alert.addAction(cancel)
+		alert.addAction(action)
+		
+		return alert
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		LocationManager.shared.checkLocationService()
+		observerNotification()
+	
 		viewModel.fetchTopResto()
 		configureHomeNavBar()
 		setupCollectionView()
 		configureViewModel()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		notificationCenter.removeObserver(self)
+		
+		if let observer = observer {
+			notificationCenter.removeObserver(observer)
+		}
 	}
 	
 	private func configureHomeNavBar() {
@@ -64,6 +101,7 @@ class HomePageViewController: UIViewController {
 	private func registerCell() {
 		homeCollectionView.register(UINib.init(nibName: headerIdentfier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentfier)
 		homeCollectionView.register(UINib(nibName: topRestoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: topRestoCellIdentifier)
+		homeCollectionView.register(UINib(nibName: nearbyRestoCollectionIdentifier, bundle: nil), forCellWithReuseIdentifier: nearbyRestoCollectionIdentifier)
 		homeCollectionView.register(UINib.init(nibName: footerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerIdentifier)
 	}
 	
@@ -71,13 +109,33 @@ class HomePageViewController: UIViewController {
 		popUpView.modalPresentationStyle = .overFullScreen
 		self.present(popUpView, animated: false, completion: nil)
 	}
+	
+	private func observerNotification() {
+		notificationCenter.addObserver(forName: .sharedLocation, object: nil, queue: .main) { notification in
+			
+			guard let object = notification.object as? [String: Any] else { return }
+			guard let error = object["error"] as? Bool else { return }
+			
+			if error {
+				print("error to access location service.")
+				self.present(self.alertView, animated: true, completion: nil)
+			} else {
+				guard let location = object["location"] as? CLLocation else { return }
+					
+				let lat = (location.coordinate.latitude)
+				let long = (location.coordinate.longitude)
 
+				self.viewModel.fetchNearbyResto(latitude: String(format: "%f", lat), longitude: String(format: "%f", long))
+			}
+			
+		}
+	}
 }
 
 
 extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 1
+		return 2
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -108,7 +166,11 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 extension HomePageViewController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 3
+		if section == 0 {
+			return 3
+		} else {
+			return 1
+		}
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -120,20 +182,29 @@ extension HomePageViewController: UICollectionViewDataSource {
 			
 			if indexPath.section == 0 {
 				headerView.configureTitleLabel(text: "Top Resto")
+			} else if indexPath.section == 1 {
+				headerView.configureTitleLabel(text: "Nearby Resto")
 			}
 			
 			return headerView
 		case UICollectionView.elementKindSectionFooter:
-			let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
-			
 			if indexPath.section == 0 {
+				let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
 				footerView.configureFooterLabel(text: "See More >")
 				
 				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
 				footerView.addGestureRecognizer(tapGestureRecognizer)
+				
+				return footerView
+			} else {
+				let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! TopRestoFooterCollectionReusableView
+				footerView.configureFooterLabel(text: "")
+				
+				let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(seeMoreTapped))
+				footerView.addGestureRecognizer(tapGestureRecognizer)
+				
+				return footerView
 			}
-			
-			return footerView
 			
 		default:
 			assert(false, "Unexpected element kind")
@@ -151,12 +222,18 @@ extension HomePageViewController: UICollectionViewDataSource {
 			topRestoCell.configureTopRestoLabel(number: "\(indexPath.row + 1)", restoName: topRestoData?.name ?? "Top Resto Cell \(indexPath.row + 1)")
 			return topRestoCell
 		}
+		else if indexPath.section == 1 {
+			guard let nearbyRestoCell = collectionView.dequeueReusableCell(withReuseIdentifier: nearbyRestoCollectionIdentifier, for: indexPath) as? NearbyRestoSectionCollectionView else {
+				return UICollectionViewCell()
+			}
+			
+			nearbyRestoCell.viewModel = viewModel
+			
+			return nearbyRestoCell
+		}
 		
 		return UICollectionViewCell()
 		
 	}
 	
 }
-
-
-
