@@ -13,6 +13,8 @@
 		0815C8842962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0815C8822962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib */; };
 		0815C8892962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0815C8872962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift */; };
 		0815C88A2962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0815C8882962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib */; };
+		082CA02B29656342006CB946 /* AllRestoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082CA02929656342006CB946 /* AllRestoCollectionViewCell.swift */; };
+		082CA02C29656342006CB946 /* AllRestoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082CA02A29656342006CB946 /* AllRestoCollectionViewCell.xib */; };
 		086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */; };
 		08B167D6295D7C1700721067 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B167D5295D7C1700721067 /* LocationManager.swift */; };
 		1AC4BC6BD731C134D128413E /* Pods_RestaurantAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */; };
@@ -72,6 +74,8 @@
 		0815C8822962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyRestoCollectionViewCell.xib; sourceTree = "<group>"; };
 		0815C8872962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRestoSectionCollectionView.swift; sourceTree = "<group>"; };
 		0815C8882962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyRestoSectionCollectionView.xib; sourceTree = "<group>"; };
+		082CA02929656342006CB946 /* AllRestoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRestoCollectionViewCell.swift; sourceTree = "<group>"; };
+		082CA02A29656342006CB946 /* AllRestoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllRestoCollectionViewCell.xib; sourceTree = "<group>"; };
 		086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		08B167D5295D7C1700721067 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1C343EB85E4A7B499616269C /* Pods-RestaurantAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +169,15 @@
 			path = NearbyResto;
 			sourceTree = "<group>";
 		};
+		082CA02829656314006CB946 /* AllResto */ = {
+			isa = PBXGroup;
+			children = (
+				082CA02929656342006CB946 /* AllRestoCollectionViewCell.swift */,
+				082CA02A29656342006CB946 /* AllRestoCollectionViewCell.xib */,
+			);
+			path = AllResto;
+			sourceTree = "<group>";
+		};
 		0910103676C930B70A2B0C78 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +194,7 @@
 		AF2F69B52955BBD500F04660 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				082CA02829656314006CB946 /* AllResto */,
 				0815C87A2962D7C50081B7D3 /* NearbyResto */,
 				AF3C357E295977ED0077E00B /* TopResto */,
 				AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */,
@@ -439,6 +453,7 @@
 			files = (
 				AF2F69C42955C41800F04660 /* HeaderCollectionReusableView.xib in Resources */,
 				080CCE4C29544DA200C50D00 /* LoginViewController.xib in Resources */,
+				082CA02C29656342006CB946 /* AllRestoCollectionViewCell.xib in Resources */,
 				AFFB2E79295C1083008F1F77 /* TopSearchCollectionViewCell.xib in Resources */,
 				0815C8842962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib in Resources */,
 				AF3C35822959781D0077E00B /* TopRestoFooterCollectionReusableView.xib in Resources */,
@@ -589,6 +604,7 @@
 				AF2F69BC2955BF6500F04660 /* BukaRestoResponse.swift in Sources */,
 				AFFB2E78295C1083008F1F77 /* TopSearchCollectionViewCell.swift in Sources */,
 				0815C8832962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.swift in Sources */,
+				082CA02B29656342006CB946 /* AllRestoCollectionViewCell.swift in Sources */,
 				AF3C35812959781D0077E00B /* TopRestoFooterCollectionReusableView.swift in Sources */,
 				AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */,
 				AF3C35872959A96A0077E00B /* PopUpViewController.swift in Sources */,

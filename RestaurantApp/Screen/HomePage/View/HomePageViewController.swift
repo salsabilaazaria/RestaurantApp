@@ -24,6 +24,7 @@ class HomePageViewController: UIViewController {
 	let headerIdentfier = "HeaderCollectionReusableView"
 	let footerIdentifier = "TopRestoFooterCollectionReusableView"
 	let nearbyRestoCollectionIdentifier = "NearbyRestoSectionCollectionView"
+	let allRestoCollectionIdentifier = "AllRestoCollectionViewCell"
 	
 	var alertView: UIAlertController {
 		let alert = UIAlertController(title: "Location Service off", message: "", preferredStyle: .alert)
@@ -51,7 +52,7 @@ class HomePageViewController: UIViewController {
 		LocationManager.shared.checkLocationService()
 		observerNotification()
 	
-		viewModel.fetchTopResto()
+		fetchAPI()
 		configureHomeNavBar()
 		setupCollectionView()
 		configureViewModel()
@@ -81,8 +82,20 @@ class HomePageViewController: UIViewController {
 											  UIBarButtonItem(customView: searchButton)]
 	}
 	
+	private func fetchAPI() {
+		viewModel.fetchTopResto()
+		viewModel.fetchAllResto()
+	}
+	
 	private func configureViewModel() {
 		viewModel.onReload = { [weak self] in
+			DispatchQueue.main.async {
+				self?.homeCollectionView.reloadData()
+			}
+			
+		}
+		
+		viewModel.onReloadAllRestoSection = { [weak self] in
 			DispatchQueue.main.async {
 				self?.homeCollectionView.reloadData()
 			}
@@ -102,6 +115,7 @@ class HomePageViewController: UIViewController {
 		homeCollectionView.register(UINib.init(nibName: headerIdentfier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentfier)
 		homeCollectionView.register(UINib(nibName: topRestoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: topRestoCellIdentifier)
 		homeCollectionView.register(UINib(nibName: nearbyRestoCollectionIdentifier, bundle: nil), forCellWithReuseIdentifier: nearbyRestoCollectionIdentifier)
+		homeCollectionView.register(UINib(nibName: allRestoCollectionIdentifier, bundle: nil), forCellWithReuseIdentifier: allRestoCollectionIdentifier)
 		homeCollectionView.register(UINib.init(nibName: footerIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerIdentifier)
 	}
 	
@@ -135,14 +149,30 @@ class HomePageViewController: UIViewController {
 
 extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 2
+		return 3
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		if indexPath.section == 0 {
 			return CGSize(width: cellWidth, height: 40)
+		} else if indexPath.section == 2 {
+			let paddingRight: CGFloat = 16
+			let paddingLeft: CGFloat = 16
+			let spacingItem: CGFloat = 12
+			
+			let width = (cellWidth - (paddingLeft + paddingRight + spacingItem))/2
+			
+			return CGSize(width: width, height: 175)
 		}
 		return CGSize(width: cellWidth, height: 100)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		if section == 2 {
+			return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+		}
+		
+		return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -154,6 +184,11 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		
+		if section == 2 {
+			return 12
+		}
+		
 		return 0
 	}
 	
@@ -168,6 +203,8 @@ extension HomePageViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		if section == 0 {
 			return 3
+		} else if section == 2 {
+			return viewModel.allResto?.data?.count ?? 0
 		} else {
 			return 1
 		}
@@ -184,6 +221,8 @@ extension HomePageViewController: UICollectionViewDataSource {
 				headerView.configureTitleLabel(text: "Top Resto")
 			} else if indexPath.section == 1 {
 				headerView.configureTitleLabel(text: "Nearby Resto")
+			} else if indexPath.section == 2 {
+				headerView.configureTitleLabel(text: "All Resto")
 			}
 			
 			return headerView
@@ -230,6 +269,20 @@ extension HomePageViewController: UICollectionViewDataSource {
 			nearbyRestoCell.viewModel = viewModel
 			
 			return nearbyRestoCell
+		} else if indexPath.section == 2 {
+			guard let allRestoCell = collectionView.dequeueReusableCell(withReuseIdentifier: allRestoCollectionIdentifier, for: indexPath) as? AllRestoCollectionViewCell else {
+				return UICollectionViewCell()
+			}
+			
+			let allRestoData = viewModel.allResto?.data?[indexPath.row]
+			let restaurantName = allRestoData?.name ?? ""
+			let distance = allRestoData?.distance ?? 0
+			
+			let distanceString = String(format: "%.2f", distance)
+			
+			allRestoCell.configureAllRestoProperty(restaurantName: restaurantName, distance: distanceString)
+			
+			return allRestoCell
 		}
 		
 		return UICollectionViewCell()

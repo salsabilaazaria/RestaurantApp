@@ -10,6 +10,7 @@ import Foundation
 class HomePageViewModel {
 	var onReload: (() -> Void)?
 	var onReloadNearbySection: (() -> Void)?
+	var onReloadAllRestoSection: (() -> Void)?
 	
 	var topResto: TopResto? = nil {
 		didSet {
@@ -20,6 +21,12 @@ class HomePageViewModel {
 	var nearbyResto: NearbyResto? = nil {
 		didSet {
 			self.onReloadNearbySection?()
+		}
+	}
+	
+	var allResto: AllResto? = nil {
+		didSet {
+			self.onReloadAllRestoSection?()
 		}
 	}
 		
@@ -56,6 +63,19 @@ class HomePageViewModel {
 				print("DIM \(nearbyResto)")
 			case .failure(let error):
 				print("DIM error\(error)")
+			}
+		}
+	}
+	
+	func fetchAllResto() {
+		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/restaurant/all?page=1")
+		URLSession.shared.requestData(url: url, expecting: AllResto.self) { result in
+			switch result {
+			case .success(let allResto):
+				self.allResto = allResto
+				print("DIM ALL RESTO \(allResto)")
+			case .failure(let error):
+				print("DIM ALL RESTO error\(error)")
 			}
 		}
 	}

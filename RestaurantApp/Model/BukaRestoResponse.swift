@@ -20,6 +20,12 @@ struct NearbyResto: Codable {
 	let data: [Resto]?
 }
 
+struct AllResto: Codable {
+	let message: String?
+	let code: Int?
+	let data: [Resto]?
+}
+
 struct Resto: Codable {
 	let id: String?
 	let name: String?
