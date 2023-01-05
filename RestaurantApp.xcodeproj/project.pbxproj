@@ -42,6 +42,12 @@
 		AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7207D62962AF2600E2FB0C /* SearchPageViewModel.swift */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
+		AFDA60342965739400EF8AB8 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */; };
+		AFDA60352965739400EF8AB8 /* DetailPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */; };
+		AFDA603D296578FC00EF8AB8 /* MenuSectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA603B296578FC00EF8AB8 /* MenuSectionTableView.swift */; };
+		AFDA603E296578FC00EF8AB8 /* MenuSectionTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDA603C296578FC00EF8AB8 /* MenuSectionTableView.xib */; };
+		AFDA604129657AE600EF8AB8 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA603F29657AE500EF8AB8 /* MenuTableViewCell.swift */; };
+		AFDA604229657AE600EF8AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDA604029657AE500EF8AB8 /* MenuTableViewCell.xib */; };
 		AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */; };
 		AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */; };
 		AFE985BA2951AD3E008CCC36 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */; };
@@ -112,6 +118,12 @@
 		AF7207D62962AF2600E2FB0C /* SearchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewModel.swift; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
+		AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPageViewController.xib; sourceTree = "<group>"; };
+		AFDA603B296578FC00EF8AB8 /* MenuSectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSectionTableView.swift; sourceTree = "<group>"; };
+		AFDA603C296578FC00EF8AB8 /* MenuSectionTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSectionTableView.xib; sourceTree = "<group>"; };
+		AFDA603F29657AE500EF8AB8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		AFDA604029657AE500EF8AB8 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		AFE985B52951ACEE008CCC36 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		AFE985B62951ACEE008CCC36 /* HomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
 		AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -298,6 +310,7 @@
 		AF528D48294728B700CF81A5 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				AFDA60312965738000EF8AB8 /* DetailPage */,
 				AF3C3589295AB0830077E00B /* SearchPage */,
 				080CCE4829544ABA00C50D00 /* LoginPage */,
 				AFE985B42951ACD9008CCC36 /* HomePage */,
@@ -314,6 +327,27 @@
 				AF2F69B32955BB2700F04660 /* URLSession+Extension.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		AFDA60312965738000EF8AB8 /* DetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				AFDA60362965761300EF8AB8 /* Menu */,
+				AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */,
+				AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */,
+			);
+			path = DetailPage;
+			sourceTree = "<group>";
+		};
+		AFDA60362965761300EF8AB8 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AFDA603B296578FC00EF8AB8 /* MenuSectionTableView.swift */,
+				AFDA603C296578FC00EF8AB8 /* MenuSectionTableView.xib */,
+				AFDA603F29657AE500EF8AB8 /* MenuTableViewCell.swift */,
+				AFDA604029657AE500EF8AB8 /* MenuTableViewCell.xib */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		AFE985B42951ACD9008CCC36 /* HomePage */ = {
@@ -464,9 +498,12 @@
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
 				AF3C35882959A96A0077E00B /* PopUpViewController.xib in Resources */,
 				AF2F69B92955BBE800F04660 /* TopRestoCollectionViewCell.xib in Resources */,
+				AFDA603E296578FC00EF8AB8 /* MenuSectionTableView.xib in Resources */,
 				AF3C3591295AB0CD0077E00B /* SearchPageViewController.xib in Resources */,
 				086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
+				AFDA60352965739400EF8AB8 /* DetailPageViewController.xib in Resources */,
+				AFDA604229657AE600EF8AB8 /* MenuTableViewCell.xib in Resources */,
 				0815C88A2962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFDA603D296578FC00EF8AB8 /* MenuSectionTableView.swift in Sources */,
 				080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */,
 				AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
@@ -604,6 +642,7 @@
 				AF2F69C32955C41800F04660 /* HeaderCollectionReusableView.swift in Sources */,
 				AF2F69B42955BB2700F04660 /* URLSession+Extension.swift in Sources */,
 				AF3C3590295AB0CD0077E00B /* SearchPageViewController.swift in Sources */,
+				AFDA604129657AE600EF8AB8 /* MenuTableViewCell.swift in Sources */,
 				0815C8892962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift in Sources */,
 				AF2F69BC2955BF6500F04660 /* BukaRestoResponse.swift in Sources */,
 				AFFB2E78295C1083008F1F77 /* TopSearchCollectionViewCell.swift in Sources */,
@@ -615,6 +654,7 @@
 				AFFB2E7B295C38A9008F1F77 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */,
 				AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */,
+				AFDA60342965739400EF8AB8 /* DetailPageViewController.swift in Sources */,
 				AF2F69B82955BBE800F04660 /* TopRestoCollectionViewCell.swift in Sources */,
 				AF2F69BE2955C07600F04660 /* HomePageViewModel.swift in Sources */,
 			);
