@@ -45,6 +45,7 @@ struct Menu: Codable {
 	let description: String?
 	let tags: [String]?
 	let price: Int?
+	let image_url: String?
 }
 
 struct Resto: Codable {
