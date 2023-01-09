@@ -16,6 +16,7 @@ extension UIViewController {
 	}
 	
 	func useDarkGreenNavBar() {
+		useDarkGreenStatusBar() 
 		navigationController?.navigationBar.backgroundColor = UIColor.bukaRestoDarkGreen
 	}
 	

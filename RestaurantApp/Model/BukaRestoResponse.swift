@@ -20,6 +20,33 @@ struct NearbyResto: Codable {
 	let data: [Resto]?
 }
 
+struct CategoryBaseResponse: Codable {
+	let message: String?
+	let code: Int?
+	let data: [Category]?
+}
+
+struct MenuBaseResponse: Codable {
+	let message: String?
+	let code: Int?
+	let data: [Menu]?
+}
+
+struct Category: Codable {
+	let id: String?
+	let name: String?
+	let description: String?
+}
+
+struct Menu: Codable {
+	let id: String?
+	let category_id: String?
+	let name: String?
+	let description: String?
+	let tags: [String]?
+	let price: Int?
+}
+
 struct Resto: Codable {
 	let id: String?
 	let name: String?
