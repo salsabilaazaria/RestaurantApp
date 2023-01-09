@@ -15,7 +15,9 @@ class DetailPageViewController: UIViewController {
 	private let menuCategoryCollectionViewCell = MenuCategoryCollectionViewCell().identifier
 	
 	private let viewModel = DetailPageViewModel()
-	var headerView: UICollectionView!
+	
+	private var categoryCollectionView: UICollectionView!
+	private var headerView: UIView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,7 +27,8 @@ class DetailPageViewController: UIViewController {
 		
 		configureTableView()
 		configureViewModel()
-		configureHeaderCategoryCollectionView()
+		configureCategoryCollectionView()
+		configureHeaderMenuSection()
 		
 	}
 	
@@ -34,29 +37,36 @@ class DetailPageViewController: UIViewController {
 		detailPageTableView.dataSource = self
 		detailPageTableView.register(UINib(nibName: menuSectionCellIdentifier, bundle: nil), forCellReuseIdentifier: menuSectionCellIdentifier)
 		detailPageTableView.sectionHeaderTopPadding = 0
-
 	}
 	
 	private func configureViewModel() {
 		viewModel.onReload = { [weak self] in
 			DispatchQueue.main.async {
 				self?.detailPageTableView.reloadData()
-				self?.headerView.reloadData()
+				self?.categoryCollectionView.reloadData()
 			}
 		}
 	}
 	
-	private func configureHeaderCategoryCollectionView() {
-		let layout = UICollectionViewFlowLayout()
-		layout.scrollDirection = .horizontal
-
-		headerView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40), collectionViewLayout: layout)
-		headerView.isUserInteractionEnabled = true
+	private func configureCategoryCollectionView() {
+		let flowLayout = UICollectionViewFlowLayout()
+		flowLayout.scrollDirection = .horizontal
+		flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 		
-		headerView.dataSource = self
-		headerView.delegate = self
-		headerView.register(UINib(nibName: menuCategoryCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: menuCategoryCollectionViewCell)
-		headerView.showsHorizontalScrollIndicator = false
+		categoryCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40), collectionViewLayout: flowLayout)
+		categoryCollectionView.isUserInteractionEnabled = true
+		categoryCollectionView.showsHorizontalScrollIndicator = false
+		categoryCollectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+		
+		categoryCollectionView.dataSource = self
+		categoryCollectionView.delegate = self
+		categoryCollectionView.register(UINib(nibName: menuCategoryCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: menuCategoryCollectionViewCell)
+
+	}
+	
+	private func configureHeaderMenuSection() {
+		headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+		headerView.addSubview(categoryCollectionView)
 	}
 	
 }
@@ -150,11 +160,6 @@ extension DetailPageViewController: UICollectionViewDataSource, UICollectionView
 		
 		cell.setCategoryLabel(text: menuCategory)
 		return cell
-	}
-	
-	// MARK: UICollectionViewDelegateFlowLayout
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 100, height: 20)
 	}
 }
 
