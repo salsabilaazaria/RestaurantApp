@@ -19,6 +19,8 @@ class DetailPageViewController: UIViewController {
 	private var categoryCollectionView: UICollectionView!
 	private var headerView: UIView!
 	
+	private let headerHeight: CGFloat = 50
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		useDarkGreenNavBar()
@@ -53,19 +55,18 @@ class DetailPageViewController: UIViewController {
 		flowLayout.scrollDirection = .horizontal
 		flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 		
-		categoryCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40), collectionViewLayout: flowLayout)
+		categoryCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: headerHeight), collectionViewLayout: flowLayout)
 		categoryCollectionView.isUserInteractionEnabled = true
 		categoryCollectionView.showsHorizontalScrollIndicator = false
-		categoryCollectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+		categoryCollectionView.contentInset = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
 		
 		categoryCollectionView.dataSource = self
 		categoryCollectionView.delegate = self
 		categoryCollectionView.register(UINib(nibName: menuCategoryCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: menuCategoryCollectionViewCell)
-
 	}
 	
 	private func configureHeaderMenuSection() {
-		headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+		headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: headerHeight))
 		headerView.addSubview(categoryCollectionView)
 	}
 	
@@ -85,7 +86,7 @@ extension DetailPageViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		switch section {
 		case 1:
-			return 40
+			return headerHeight
 		default:
 			return CGFloat.leastNonzeroMagnitude
 		}

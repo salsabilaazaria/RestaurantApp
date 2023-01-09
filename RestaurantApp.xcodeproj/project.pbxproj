@@ -32,6 +32,7 @@
 		AF3C35882959A96A0077E00B /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3C35862959A96A0077E00B /* PopUpViewController.xib */; };
 		AF3C3590295AB0CD0077E00B /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3C358E295AB0CD0077E00B /* SearchPageViewController.swift */; };
 		AF3C3591295AB0CD0077E00B /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3C358F295AB0CD0077E00B /* SearchPageViewController.xib */; };
+		AF4FED43296C209E00199788 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4FED42296C209E00199788 /* UIImage+Extension.swift */; };
 		AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D182947283100CF81A5 /* AppDelegate.swift */; };
 		AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D1C2947283100CF81A5 /* ViewController.swift */; };
 		AF528D222947283400CF81A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF528D212947283400CF81A5 /* Assets.xcassets */; };
@@ -107,6 +108,7 @@
 		AF3C35862959A96A0077E00B /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
 		AF3C358E295AB0CD0077E00B /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		AF3C358F295AB0CD0077E00B /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
+		AF4FED42296C209E00199788 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		AF528D152947283100CF81A5 /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF528D182947283100CF81A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF528D1C2947283100CF81A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */,
 				AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */,
 				AF2F69B32955BB2700F04660 /* URLSession+Extension.swift */,
+				AF4FED42296C209E00199788 /* UIImage+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				AF3C3590295AB0CD0077E00B /* SearchPageViewController.swift in Sources */,
 				AFDA604129657AE600EF8AB8 /* MenuTableViewCell.swift in Sources */,
 				0815C8892962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift in Sources */,
+				AF4FED43296C209E00199788 /* UIImage+Extension.swift in Sources */,
 				AF2F69BC2955BF6500F04660 /* BukaRestoResponse.swift in Sources */,
 				AFFB2E78295C1083008F1F77 /* TopSearchCollectionViewCell.swift in Sources */,
 				0815C8832962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.swift in Sources */,

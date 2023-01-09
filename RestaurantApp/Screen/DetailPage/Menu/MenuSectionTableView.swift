@@ -12,6 +12,8 @@ class MenuSectionTableView: UITableViewCell {
 	@IBOutlet weak var menuTableView: UITableView!
 	let identifier = "MenuSectionTableView"
 	
+	private let menuCellIdentifier = MenuTableViewCell().identifier
+	
 	var restoMenu: [RestoMenu]? = nil {
 		didSet {
 			DispatchQueue.main.async {
@@ -29,6 +31,8 @@ class MenuSectionTableView: UITableViewCell {
 		menuTableView.delegate = self
 		menuTableView.dataSource = self
 		menuTableView.sectionHeaderTopPadding = 0
+		menuTableView.register(UINib(nibName: menuCellIdentifier, bundle: nil), forCellReuseIdentifier: menuCellIdentifier)
+		menuTableView.isUserInteractionEnabled = false
 	}
 }
 
@@ -54,15 +58,14 @@ extension MenuSectionTableView: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let tableCell = UITableViewCell()
 		
-		guard let menu = restoMenu?[indexPath.section].menus?[indexPath.row].name else {
+		guard let menu = restoMenu?[indexPath.section].menus?[indexPath.row],
+			  let cell = tableView.dequeueReusableCell(withIdentifier: menuCellIdentifier) as? MenuTableViewCell else {
 			return tableCell
 		}
+	
+		cell.menu = menu
 		
-		var contentConfiguration = tableCell.defaultContentConfiguration()
-		contentConfiguration.text = "\(menu) with IndexPath row\(indexPath.row) and section\(indexPath.section)"
-		tableCell.contentConfiguration = contentConfiguration
-		
-		return tableCell
+		return cell
 	}
 	
 	
