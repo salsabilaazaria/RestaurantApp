@@ -40,6 +40,9 @@
 		AF528D3A2947283400CF81A5 /* RestaurantAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D392947283400CF81A5 /* RestaurantAppUITests.swift */; };
 		AF528D3C2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */; };
 		AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7207D62962AF2600E2FB0C /* SearchPageViewModel.swift */; };
+		AF72E3662967DE0A00A73F90 /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF72E3652967DE0A00A73F90 /* DetailPageViewModel.swift */; };
+		AF72E36D29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF72E36B29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift */; };
+		AF72E36E29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF72E36C29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
 		AFDA60342965739400EF8AB8 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */; };
@@ -116,6 +119,9 @@
 		AF528D392947283400CF81A5 /* RestaurantAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppUITests.swift; sourceTree = "<group>"; };
 		AF528D3B2947283400CF81A5 /* RestaurantAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AF7207D62962AF2600E2FB0C /* SearchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewModel.swift; sourceTree = "<group>"; };
+		AF72E3652967DE0A00A73F90 /* DetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewModel.swift; sourceTree = "<group>"; };
+		AF72E36B29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF72E36C29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 				AFDA60362965761300EF8AB8 /* Menu */,
 				AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */,
 				AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */,
+				AF72E3652967DE0A00A73F90 /* DetailPageViewModel.swift */,
 			);
 			path = DetailPage;
 			sourceTree = "<group>";
@@ -346,6 +353,8 @@
 				AFDA603C296578FC00EF8AB8 /* MenuSectionTableView.xib */,
 				AFDA603F29657AE500EF8AB8 /* MenuTableViewCell.swift */,
 				AFDA604029657AE500EF8AB8 /* MenuTableViewCell.xib */,
+				AF72E36B29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift */,
+				AF72E36C29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -495,6 +504,7 @@
 				0815C8842962DA0E0081B7D3 /* NearbyRestoCollectionViewCell.xib in Resources */,
 				AF3C35822959781D0077E00B /* TopRestoFooterCollectionReusableView.xib in Resources */,
 				AFE985B82951ACEE008CCC36 /* HomePageViewController.xib in Resources */,
+				AF72E36E29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib in Resources */,
 				AF528D252947283400CF81A5 /* LaunchScreen.storyboard in Resources */,
 				AF3C35882959A96A0077E00B /* PopUpViewController.xib in Resources */,
 				AF2F69B92955BBE800F04660 /* TopRestoCollectionViewCell.xib in Resources */,
@@ -632,6 +642,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF72E3662967DE0A00A73F90 /* DetailPageViewModel.swift in Sources */,
+				AF72E36D29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift in Sources */,
 				AFDA603D296578FC00EF8AB8 /* MenuSectionTableView.swift in Sources */,
 				080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */,
 				AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */,
