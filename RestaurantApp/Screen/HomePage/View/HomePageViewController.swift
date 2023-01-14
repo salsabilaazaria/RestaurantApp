@@ -26,6 +26,10 @@ class HomePageViewController: UIViewController {
 	let nearbyRestoCollectionIdentifier = "NearbyRestoSectionCollectionView"
 	let allRestoCollectionIdentifier = "AllRestoCollectionViewCell"
 	
+	var currentOffset: CGPoint = .zero
+	var lastContentSize: CGSize = .zero
+	var fetchingMore: Bool = false
+	
 	var alertView: UIAlertController {
 		let alert = UIAlertController(title: "Location Service off", message: "", preferredStyle: .alert)
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
@@ -108,6 +112,7 @@ class HomePageViewController: UIViewController {
 		homeCollectionView.dataSource = self
 		homeCollectionView.delegate = self
 		homeCollectionView.showsHorizontalScrollIndicator = false
+		homeCollectionView.bounces = false
 		registerCell()
 	}
 	
@@ -276,17 +281,37 @@ extension HomePageViewController: UICollectionViewDataSource {
 			
 			let allRestoData = viewModel.allResto?.data?[indexPath.row]
 			let restaurantName = allRestoData?.name ?? ""
-			let distance = allRestoData?.distance ?? 0
+			let distance = allRestoData?.distance ?? ""
 			
-			let distanceString = String(format: "%.2f", distance)
-			
-			allRestoCell.configureAllRestoProperty(restaurantName: restaurantName, distance: distanceString)
+			allRestoCell.configureAllRestoProperty(restaurantName: restaurantName, distance: distance)
 			
 			return allRestoCell
 		}
 		
 		return UICollectionViewCell()
 		
+	}
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+		let offsetY = scrollView.contentOffset.y
+		let contentHeight = scrollView.contentSize.height
+		let scrollHeight = scrollView.frame.height
+			
+		if offsetY > (contentHeight - scrollHeight) {
+			if !fetchingMore {
+				startFetchingAgain()
+			}
+		}
+		
+	}
+	
+	func startFetchingAgain() {
+		fetchingMore = true
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+			self.fetchingMore = false
+		}
 	}
 	
 }
