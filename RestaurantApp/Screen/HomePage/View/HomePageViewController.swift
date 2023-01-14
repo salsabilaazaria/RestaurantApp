@@ -310,6 +310,8 @@ extension HomePageViewController: UICollectionViewDataSource {
 		fetchingMore = true
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+			self.viewModel.fetchAllResto()
+			self.homeCollectionView.reloadData()
 			self.fetchingMore = false
 		}
 	}
