@@ -15,12 +15,19 @@ extension UIViewController {
 		UIApplication.shared.keyWindow?.addSubview(statusBar)
 	}
 	
-	func useDarkGreenNavBar() {
+	func useBukaRestoBaseNavBar() {
+		useDarkGreenStatusBar()
 		navigationController?.navigationBar.backgroundColor = UIColor.bukaRestoDarkGreen
+		
+		let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+		navigationController?.navigationBar.titleTextAttributes = textAttributes
+		
+		navigationController?.navigationBar.tintColor = .white
+		navigationController?.navigationBar.topItem?.backButtonTitle = ""
 	}
 	
 	func useNavBarWithLeftLogo() {
-		useDarkGreenStatusBar()
+		useBukaRestoBaseNavBar()
 		navigationController?.navigationBar.backgroundColor = UIColor.bukaRestoDarkGreen
 		
 		let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
