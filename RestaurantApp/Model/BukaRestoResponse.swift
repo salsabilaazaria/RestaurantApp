@@ -34,20 +34,24 @@ struct Resto: Codable {
 	let longitude: Double?
 	let rating: Float?
 	let open_hours: [OpenHours]?
-	var distance: Double {
+	var distance: String {
 		let myLocation = CLLocation(latitude: LocationManager.shared.lat, longitude: LocationManager.shared.long)
 		
 		let modelLocation = CLLocation(latitude: latitude ?? 0, longitude: longitude ?? 0)
 		
 		let distance = myLocation.distance(from: modelLocation)
 		
-//		if (distance <= 1000) {
-//			return distance
-//		} else {
-//			return distance / 1000
-//		}
+		var newDistanceString: String = ""
+		let result: Double = distance <= 1000 ? distance : distance/1000
+		let distanceString = String(format: "%.2f", result)
 		
-		return distance
+		if distance <= 1000 {
+			newDistanceString = distanceString + String("Meter")
+		} else {
+			newDistanceString =  distanceString + String("KM")
+		}
+		
+		return newDistanceString
 	}
 }
 
