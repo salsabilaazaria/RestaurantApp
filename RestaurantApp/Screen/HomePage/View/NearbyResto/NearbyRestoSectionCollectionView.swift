@@ -86,19 +86,9 @@ extension NearbyRestoSectionCollectionView: UICollectionViewDataSource {
 		
 		let nearbyRestoData = viewModel?.nearbyResto?.data?[indexPath.row]
 		let restoName = nearbyRestoData?.name ?? ""
-		let distance = nearbyRestoData?.distance ?? 0
-	
-		var newDistanceString: String = ""
-		let result: Double = distance <= 1000 ? distance : distance/1000
-		let distanceString = String(format: "%.2f", result)
+		let distance = nearbyRestoData?.distance ?? ""
 		
-		if distance <= 1000 {
-			newDistanceString = distanceString + String("Meter")
-		} else {
-			newDistanceString =  distanceString + String("KM")
-		}
-		
-		nearbyRestoCell.configureNearbyRestoProperty(restaurantName: "\(restoName)", distance: "\(newDistanceString)")
+		nearbyRestoCell.configureNearbyRestoProperty(restaurantName: "\(restoName)", distance: "\(distance)")
 		
 		nearbyRestoCell.backgroundColor = .white
 		
