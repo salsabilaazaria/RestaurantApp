@@ -31,7 +31,19 @@ class DetailPageViewController: UIViewController {
 		configureViewModel()
 		configureCategoryCollectionView()
 		configureHeaderMenuSection()
+		configureNavigationBar()
 		
+	}
+	
+	private func configureNavigationBar() {
+		let appearance = UINavigationBarAppearance()
+		appearance.configureWithOpaqueBackground()
+		appearance.backgroundColor = UIColor.bukaRestoDarkGreen
+		navigationController?.navigationBar.isTranslucent = true
+		navigationController?.navigationBar.tintColor = .white
+		navigationController?.navigationBar.standardAppearance = appearance
+		navigationController?.navigationBar.compactAppearance = appearance
+		navigationController?.navigationBar.scrollEdgeAppearance = appearance
 	}
 	
 	private func configureTableView() {
@@ -39,6 +51,7 @@ class DetailPageViewController: UIViewController {
 		detailPageTableView.dataSource = self
 		detailPageTableView.register(UINib(nibName: menuSectionCellIdentifier, bundle: nil), forCellReuseIdentifier: menuSectionCellIdentifier)
 		detailPageTableView.sectionHeaderTopPadding = 0
+		detailPageTableView.backgroundColor = .bukaRestoErrorFontColor
 	}
 	
 	private func configureViewModel() {
@@ -117,7 +130,7 @@ extension DetailPageViewController: UITableViewDataSource {
 					  return UITableViewCell()
 				  }
 			cell.restoMenu = restoMenu
-
+			cell.mainScrollView = tableView
 			return cell
 		default:
 			let tableCell = UITableViewCell()
@@ -128,6 +141,19 @@ extension DetailPageViewController: UITableViewDataSource {
 			return tableCell
 		}
 	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		switch indexPath.section {
+		case 0:
+			return 44
+		case 1:
+			return UIScreen.main.bounds.height - headerHeight - (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0) - (navigationController?.navigationBar.frame.height ?? 0)
+		default:
+			return 0
+		}
+	}
+	
+	
 }
 
 extension UITableView {
@@ -162,5 +188,63 @@ extension DetailPageViewController: UICollectionViewDataSource, UICollectionView
 		cell.setCategoryLabel(text: menuCategory)
 		return cell
 	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		guard let menuCell = detailPageTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? MenuSectionTableView else {
+			return
+		}
+		menuCell.isScrollEnabled = true
+		
+		let menuCellIndexPath = IndexPath(row: 0, section: indexPath.row)
+		menuCell.scrollToIndexPath(indexPath: menuCellIndexPath)
+	
+	}
 }
+
+
+extension DetailPageViewController: UIScrollViewDelegate {
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		guard let menuCell = detailPageTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? MenuSectionTableView else {
+			return
+		}
+		
+		let yContentOffSet = scrollView.contentOffset.y
+		let cellHeight: CGFloat = 44
+		
+		if yContentOffSet > cellHeight {
+			let delta = abs(yContentOffSet - cellHeight)
+			let newCellOffSet = menuCell.menuTableView.contentOffset.y + delta
+			scrollView.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
+			menuCell.menuTableView.setContentOffset(CGPoint(x: 0, y: newCellOffSet), animated: false)
+		}
+		
+	}
+	
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		endScrolling(scrollView)
+	}
+	
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+		endScrolling(scrollView)
+	}
+	
+	private func endScrolling(_ scrollView: UIScrollView) {
+		//handling ketika user end scrolling
+		guard let menuCell = detailPageTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? MenuSectionTableView else {
+			return
+		}
+		
+		let yContentOffSet = scrollView.contentOffset.y
+		let cellHeight: CGFloat = 44
+		
+		if yContentOffSet >= cellHeight {
+			scrollView.isScrollEnabled = false
+			menuCell.menuTableView.isScrollEnabled = true
+		}
+		
+	}
+}
+
+
 
