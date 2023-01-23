@@ -11,6 +11,7 @@ class DetailPageViewController: UIViewController {
 	
 	@IBOutlet weak var detailPageTableView: UITableView!
 	
+	private let detailRestoSectionCellIdentifier = DetailRestoTableViewCell().identifier
 	private let menuSectionCellIdentifier = MenuSectionTableView().identifier
 	private let menuCategoryCollectionViewCell = MenuCategoryCollectionViewCell().identifier
 	
@@ -20,6 +21,17 @@ class DetailPageViewController: UIViewController {
 	private var headerView: UIView!
 	
 	private let headerHeight: CGFloat = 50
+	
+	private var resto: Resto?
+	
+	init(resto: Resto) {
+		self.resto = resto
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		super.init(coder: coder)
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -32,9 +44,8 @@ class DetailPageViewController: UIViewController {
 		configureCategoryCollectionView()
 		configureHeaderMenuSection()
 		configureNavigationBar()
-		
 	}
-	
+		
 	private func configureNavigationBar() {
 		let appearance = UINavigationBarAppearance()
 		appearance.configureWithOpaqueBackground()
@@ -52,6 +63,8 @@ class DetailPageViewController: UIViewController {
 		detailPageTableView.register(UINib(nibName: menuSectionCellIdentifier, bundle: nil), forCellReuseIdentifier: menuSectionCellIdentifier)
 		detailPageTableView.sectionHeaderTopPadding = 0
 		detailPageTableView.backgroundColor = .bukaRestoErrorFontColor
+		
+		detailPageTableView.register(UINib(nibName: detailRestoSectionCellIdentifier, bundle: nil), forCellReuseIdentifier: detailRestoSectionCellIdentifier)
 	}
 	
 	private func configureViewModel() {
@@ -124,6 +137,20 @@ extension DetailPageViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		switch indexPath.section {
+		case 0:
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: detailRestoSectionCellIdentifier) as? DetailRestoTableViewCell,
+				  let restoData = resto else {
+					  return UITableViewCell()
+				  }
+//			cell.restoMenu = restoMenu
+//			cell.mainScrollView = tableView
+			let openHours = restoData.open_hours
+		
+			cell.setPropertyLabel(restoName: restoData.name ?? "", operationalTime: openHours., address: restoData.address ?? "")
+			
+			return cell
+			
+			
 		case 1:
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: menuSectionCellIdentifier) as? MenuSectionTableView,
 				  let restoMenu = viewModel.restoMenu else {
@@ -145,7 +172,7 @@ extension DetailPageViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath.section {
 		case 0:
-			return 44
+			return UIScreen.main.bounds.height/2
 		case 1:
 			return UIScreen.main.bounds.height - headerHeight - (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0) - (navigationController?.navigationBar.frame.height ?? 0)
 		default:
