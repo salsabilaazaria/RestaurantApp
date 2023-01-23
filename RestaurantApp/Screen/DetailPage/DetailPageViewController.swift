@@ -140,8 +140,6 @@ extension DetailPageViewController: UITableViewDataSource {
 				  let restoData = viewModel?.resto else {
 					  return UITableViewCell()
 				  }
-//			cell.restoMenu = restoMenu
-//			cell.mainScrollView = tableView
 			let openHours = restoData.open_hours
 		
 			cell.setPropertyLabel(restoName: restoData.name ?? "", operationalTime: "\(openHours)", address: restoData.address ?? "")
@@ -268,7 +266,7 @@ extension DetailPageViewController: UIScrollViewDelegate {
 		}
 		
 		let mainYContentOffSet = scrollView.contentOffset.y
-		let cellHeight: CGFloat = 44
+		let cellHeight: CGFloat = getFirstSectionHeight()
 		
 		if mainYContentOffSet >= cellHeight {
 			scrollView.isScrollEnabled = false
