@@ -144,7 +144,7 @@ extension DetailPageViewController: UITableViewDataSource {
 //			cell.mainScrollView = tableView
 			let openHours = restoData.open_hours
 		
-			cell.setPropertyLabel(restoName: restoData.name ?? "", operationalTime: openHours., address: restoData.address ?? "")
+			cell.setPropertyLabel(restoName: restoData.name ?? "", operationalTime: "2", address: restoData.address ?? "")
 			
 			return cell
 			
