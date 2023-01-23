@@ -8,12 +8,12 @@
 import UIKit
 
 class MenuSectionTableView: UITableViewCell {
-	var onReachTop: (() -> Void)?
 	var onScrollToIndex: (() -> Void)?
 	
 	@IBOutlet weak var menuTableView: UITableView!
 	let identifier = "MenuSectionTableView"
 	
+	private var lastYContentOffset: CGFloat?
 	private let menuCellIdentifier = MenuTableViewCell().identifier
 	var mainScrollView: UIScrollView?
 	
@@ -48,9 +48,8 @@ class MenuSectionTableView: UITableViewCell {
 	
 	func scrollToIndexPath(indexPath: IndexPath) {
 		DispatchQueue.main.async {
-			self.menuTableView.reloadSections(IndexSet(integer: indexPath.section), with: .top)
 			self.menuTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-
+			self.lastYContentOffset = self.menuTableView.contentOffset.y
 		}
 	}
 }
@@ -91,16 +90,32 @@ extension MenuSectionTableView: UITableViewDataSource {
 }
 
 extension MenuSectionTableView: UIScrollViewDelegate {
+
+	
+	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		let yContentOffSet = scrollView.contentOffset.y
-		
-		if yContentOffSet <= 0 {
-			let delta = abs(yContentOffSet )
+		let cellYContentOffSet = scrollView.contentOffset.y
+		let mainYContentOffSet = mainScrollView?.contentOffset.y ?? 0
+		let cellHeight: CGFloat = 44
+
+		if cellYContentOffSet <= 0 {
+			//table scroll ke atas
+			//buat show lagi cell diatas menu pas di scroll keatas
+			let delta = abs(cellYContentOffSet)
 			var newCellOffSet = (mainScrollView?.contentOffset.y ?? 0) - delta
 			
 			newCellOffSet = max(newCellOffSet, 0)
 			mainScrollView?.setContentOffset(CGPoint(x: 0, y: newCellOffSet), animated: false)
 			scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+		}
+		
+		if mainYContentOffSet >= 0,
+		   mainYContentOffSet < cellHeight,
+		   cellYContentOffSet >= 0 {
+			//TODO: need to be iemprove
+			//mandle pas pencet salah satu kategori
+			mainScrollView?.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
+
 		}
 	}
 	
@@ -114,10 +129,10 @@ extension MenuSectionTableView: UIScrollViewDelegate {
 	
 	private func endScrolling(_ scrollView: UIScrollView) {
 		//handling ketika user end scrolling
-		let yContentOffSet = scrollView.contentOffset.y
+		let cellYContentOffSet = scrollView.contentOffset.y
 		let cellHeight: CGFloat = 44
 		
-		if yContentOffSet < cellHeight {
+		if cellYContentOffSet < cellHeight {
 			mainScrollView?.isScrollEnabled = true
 			scrollView.isScrollEnabled = false
 		}

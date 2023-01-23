@@ -51,7 +51,6 @@ class DetailPageViewController: UIViewController {
 		detailPageTableView.dataSource = self
 		detailPageTableView.register(UINib(nibName: menuSectionCellIdentifier, bundle: nil), forCellReuseIdentifier: menuSectionCellIdentifier)
 		detailPageTableView.sectionHeaderTopPadding = 0
-		detailPageTableView.backgroundColor = .bukaRestoErrorFontColor
 	}
 	
 	private func configureViewModel() {
@@ -209,17 +208,31 @@ extension DetailPageViewController: UIScrollViewDelegate {
 			return
 		}
 		
-		let yContentOffSet = scrollView.contentOffset.y
+		let mainYContentOffSet = scrollView.contentOffset.y
+		let cellYContentOffSet = menuCell.menuTableView.contentOffset.y
 		let cellHeight: CGFloat = 44
 		
-		if yContentOffSet > cellHeight {
-			let delta = abs(yContentOffSet - cellHeight)
+		if mainYContentOffSet > cellHeight {
+			//maksa supaya cell diatas menu ke hide trs
+			let delta = abs(mainYContentOffSet - cellHeight)
 			let newCellOffSet = menuCell.menuTableView.contentOffset.y + delta
 			scrollView.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
 			menuCell.menuTableView.setContentOffset(CGPoint(x: 0, y: newCellOffSet), animated: false)
 		}
 		
+		
+		if mainYContentOffSet >= 0,
+		   mainYContentOffSet < cellHeight,
+		   cellYContentOffSet >= 0 {
+			//TODO: need to be iemprove
+			//menu table di scroll ke bawah, terus drag keatas
+			//handle supaya cell atasnya ttp ga showing
+			scrollView.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
+		
+		}
+
 	}
+	
 	
 	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 		endScrolling(scrollView)
@@ -235,10 +248,10 @@ extension DetailPageViewController: UIScrollViewDelegate {
 			return
 		}
 		
-		let yContentOffSet = scrollView.contentOffset.y
+		let mainYContentOffSet = scrollView.contentOffset.y
 		let cellHeight: CGFloat = 44
 		
-		if yContentOffSet >= cellHeight {
+		if mainYContentOffSet >= cellHeight {
 			scrollView.isScrollEnabled = false
 			menuCell.menuTableView.isScrollEnabled = true
 		}
