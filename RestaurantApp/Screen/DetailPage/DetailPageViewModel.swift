@@ -17,6 +17,7 @@ class DetailPageViewModel {
 	var onReload: (() -> Void)?
 	var onReloadNearbySection: (() -> Void)?
 	
+	var resto: Resto? = nil
 	var allCategory: [Category]? = nil {
 		didSet {
 			self.finishedAllFetch = self.menu != nil && self.allCategory != nil
@@ -44,8 +45,8 @@ class DetailPageViewModel {
 		}
 	}
 
-	init() {
-		
+	init(resto: Resto) {
+		self.resto = resto
 	}
 	
 	private func createData() {
@@ -92,7 +93,11 @@ class DetailPageViewModel {
 	}
 	
 	func fetchMenu() {
-		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/food/1")
+		guard let restoId = resto?.id else {
+			return
+		}
+		
+		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/food/\(restoId)")
 		URLSession.shared.requestData(url: url, expecting: MenuBaseResponse.self) { result in
 			switch result {
 			case .success(let baseResponse):

@@ -15,29 +15,29 @@ class DetailPageViewController: UIViewController {
 	private let menuSectionCellIdentifier = MenuSectionTableView().identifier
 	private let menuCategoryCollectionViewCell = MenuCategoryCollectionViewCell().identifier
 	
-	private let viewModel = DetailPageViewModel()
+	private let viewModel: DetailPageViewModel?
 	
 	private var categoryCollectionView: UICollectionView!
 	private var headerView: UIView!
 	
 	private let headerHeight: CGFloat = 50
 	
-	private var resto: Resto?
 	
-	init(resto: Resto) {
-		self.resto = resto
+	init(viewModel: DetailPageViewModel) {
+		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}
 	
 	required init?(coder: NSCoder) {
+		self.viewModel = nil
 		super.init(coder: coder)
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		useBukaRestoBaseNavBar()
-		viewModel.fetchCategory()
-		viewModel.fetchMenu()
+		viewModel?.fetchCategory()
+		viewModel?.fetchMenu()
 		
 		configureTableView()
 		configureViewModel()
@@ -66,7 +66,7 @@ class DetailPageViewController: UIViewController {
 	}
 	
 	private func configureViewModel() {
-		viewModel.onReload = { [weak self] in
+		viewModel?.onReload = { [weak self] in
 			DispatchQueue.main.async {
 				self?.detailPageTableView.reloadData()
 				self?.categoryCollectionView.reloadData()
@@ -137,21 +137,21 @@ extension DetailPageViewController: UITableViewDataSource {
 		switch indexPath.section {
 		case 0:
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: detailRestoSectionCellIdentifier) as? DetailRestoTableViewCell,
-				  let restoData = resto else {
+				  let restoData = viewModel?.resto else {
 					  return UITableViewCell()
 				  }
 //			cell.restoMenu = restoMenu
 //			cell.mainScrollView = tableView
 			let openHours = restoData.open_hours
 		
-			cell.setPropertyLabel(restoName: restoData.name ?? "", operationalTime: "2", address: restoData.address ?? "")
+			cell.setPropertyLabel(restoName: restoData.name ?? "", operationalTime: "\(openHours)", address: restoData.address ?? "")
 			
 			return cell
 			
 			
 		case 1:
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: menuSectionCellIdentifier) as? MenuSectionTableView,
-				  let restoMenu = viewModel.restoMenu else {
+				  let restoMenu = viewModel?.restoMenu else {
 					  return UITableViewCell()
 				  }
 			cell.restoMenu = restoMenu
@@ -205,12 +205,12 @@ extension DetailPageViewController: UICollectionViewDataSource, UICollectionView
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return viewModel.restoMenu?.count ?? 0
+		return viewModel?.restoMenu?.count ?? 0
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuCategoryCollectionViewCell, for: indexPath) as! MenuCategoryCollectionViewCell
-		guard let menuCategory = viewModel.restoMenu?[indexPath.row].categoryName  else {
+		guard let menuCategory = viewModel?.restoMenu?[indexPath.row].categoryName  else {
 			return cell
 		}
 		

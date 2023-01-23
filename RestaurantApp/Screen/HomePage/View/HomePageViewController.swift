@@ -212,13 +212,14 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		if indexPath.section == 0 {
-			guard let topRestoData = viewModel.topResto?.data?[indexPath.row] else {
+		if indexPath.section == 2 {
+			guard let restoData = viewModel.allResto?.data?[indexPath.row] else {
 				return
 			}
 			
-			let vc = DetailPageViewController(resto: topRestoData)
-			navigationController?.pushViewController(vc, animated: true)
+			let detailVM = DetailPageViewModel(resto: restoData)
+			let detailVC = DetailPageViewController(viewModel: detailVM)
+			navigationController?.pushViewController(detailVC, animated: true)
 //			vc.getdatabase
 		}
 	}
