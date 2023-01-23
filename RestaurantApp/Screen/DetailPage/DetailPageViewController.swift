@@ -170,12 +170,16 @@ extension DetailPageViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath.section {
 		case 0:
-			return UIScreen.main.bounds.height/2
+			return getFirstSectionHeight()
 		case 1:
 			return UIScreen.main.bounds.height - headerHeight - (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0) - (navigationController?.navigationBar.frame.height ?? 0)
 		default:
 			return 0
 		}
+	}
+	
+	func getFirstSectionHeight() -> CGFloat {
+		return UIScreen.main.bounds.height/2
 	}
 	
 	
@@ -236,7 +240,7 @@ extension DetailPageViewController: UIScrollViewDelegate {
 		
 		let mainYContentOffSet = scrollView.contentOffset.y
 		let cellYContentOffSet = menuCell.menuTableView.contentOffset.y
-		let cellHeight: CGFloat = 44
+		let cellHeight: CGFloat = getFirstSectionHeight()
 		
 		if mainYContentOffSet > cellHeight {
 			//maksa supaya cell diatas menu ke hide trs
@@ -244,17 +248,6 @@ extension DetailPageViewController: UIScrollViewDelegate {
 			let newCellOffSet = menuCell.menuTableView.contentOffset.y + delta
 			scrollView.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
 			menuCell.menuTableView.setContentOffset(CGPoint(x: 0, y: newCellOffSet), animated: false)
-		}
-		
-		
-		if mainYContentOffSet >= 0,
-		   mainYContentOffSet < cellHeight,
-		   cellYContentOffSet >= 0 {
-			//TODO: need to be iemprove
-			//menu table di scroll ke bawah, terus drag keatas
-			//handle supaya cell atasnya ttp ga showing
-			scrollView.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
-		
 		}
 
 	}

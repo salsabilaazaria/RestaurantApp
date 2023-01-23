@@ -16,6 +16,7 @@ class MenuSectionTableView: UITableViewCell {
 	private var lastYContentOffset: CGFloat?
 	private let menuCellIdentifier = MenuTableViewCell().identifier
 	var mainScrollView: UIScrollView?
+	var firstSectionMainCellHeight: CGFloat?
 	
 	var restoMenu: [RestoMenu]? = nil {
 		didSet {
@@ -96,7 +97,7 @@ extension MenuSectionTableView: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let cellYContentOffSet = scrollView.contentOffset.y
 		let mainYContentOffSet = mainScrollView?.contentOffset.y ?? 0
-		let cellHeight: CGFloat = 44
+		let firstSectionMainCellHeight = firstSectionMainCellHeight ?? 0
 
 		if cellYContentOffSet <= 0 {
 			//table scroll ke atas
@@ -109,14 +110,6 @@ extension MenuSectionTableView: UIScrollViewDelegate {
 			scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
 		}
 		
-		if mainYContentOffSet >= 0,
-		   mainYContentOffSet < cellHeight,
-		   cellYContentOffSet >= 0 {
-			//TODO: need to be iemprove
-			//mandle pas pencet salah satu kategori
-			mainScrollView?.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
-
-		}
 	}
 	
 	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -130,9 +123,9 @@ extension MenuSectionTableView: UIScrollViewDelegate {
 	private func endScrolling(_ scrollView: UIScrollView) {
 		//handling ketika user end scrolling
 		let cellYContentOffSet = scrollView.contentOffset.y
-		let cellHeight: CGFloat = 44
+		let firstSectionMainCellHeight = firstSectionMainCellHeight ?? 0
 		
-		if cellYContentOffSet < cellHeight {
+		if cellYContentOffSet < firstSectionMainCellHeight {
 			mainScrollView?.isScrollEnabled = true
 			scrollView.isScrollEnabled = false
 		}
