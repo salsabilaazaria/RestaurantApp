@@ -23,7 +23,7 @@ class DetailRestoTableViewCell: UITableViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-		openHourTitle.attributedText = NSAttributedString.body(text: "Today Open Hour:")
+		openHourTitle.attributedText = NSAttributedString.body(text: "Today's Open Hour:")
         // Initialization code
     }
 
