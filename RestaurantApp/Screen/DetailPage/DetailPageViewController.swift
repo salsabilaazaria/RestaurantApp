@@ -244,6 +244,15 @@ extension DetailPageViewController: UIScrollViewDelegate {
 		let cellYContentOffSet = menuCell.menuTableView.contentOffset.y
 		let cellHeight: CGFloat = getFirstSectionHeight()
 		
+		if mainYContentOffSet > 0 {
+			UIView.animate(withDuration: 1.0, delay: 0, options: UIView.AnimationOptions(), animations: {
+				self.navigationController?.setNavigationBarHidden(true, animated: true)
+				print("Hide")
+			}, completion: nil)
+		} else if mainYContentOffSet <= 0 {
+			self.navigationController?.setNavigationBarHidden(false, animated: true)
+		}
+		
 		if mainYContentOffSet > cellHeight {
 			//maksa supaya cell diatas menu ke hide trs
 			let delta = abs(mainYContentOffSet - cellHeight)
