@@ -64,6 +64,7 @@
                         <constraint firstAttribute="bottom" secondItem="WhP-Sq-TfY" secondAttribute="bottom" constant="16" id="J3a-Ao-vsr"/>
                         <constraint firstItem="WhP-Sq-TfY" firstAttribute="top" secondItem="Gzz-TS-aiS" secondAttribute="top" constant="8" id="LJ4-lT-JDH"/>
                         <constraint firstAttribute="trailing" secondItem="WhP-Sq-TfY" secondAttribute="trailing" constant="16" id="usM-DA-vgP"/>
+                        <constraint firstAttribute="height" constant="58" id="y3Q-1E-Uq6"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="r9X-oo-uhP">

@@ -23,7 +23,7 @@ class DetailPageViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		useDarkGreenNavBar()
+		useBukaRestoBaseNavBar()
 		viewModel.fetchCategory()
 		viewModel.fetchMenu()
 		
