@@ -78,6 +78,7 @@ class HomePageViewController: UIViewController {
 		settingButton.setImage(UIImage(named: "setting-icon.png"), for: .normal)
 		let scanButton = UIButton(type: .custom)
 		scanButton.setImage(UIImage(named: "scan-icon.png"), for: .normal)
+		scanButton.addTarget(self, action: #selector(scannerButtonTapped), for: .touchUpInside)
 		let searchButton = UIButton(type: .custom)
 		searchButton.setImage(UIImage(named: "search-icon.png"), for: .normal)
 		searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
@@ -89,6 +90,10 @@ class HomePageViewController: UIViewController {
 	
 	@objc private func searchButtonTapped() {
 		self.navigationController?.pushViewController(SearchPageViewController(), animated: true)
+	}
+	
+	@objc private func scannerButtonTapped() {
+		self.navigationController?.pushViewController(QRScannerViewController(), animated: true)
 	}
 	
 	private func fetchAPI() {
