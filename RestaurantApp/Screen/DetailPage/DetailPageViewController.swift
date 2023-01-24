@@ -34,6 +34,7 @@ class DetailPageViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		useBukaRestoBaseNavBar()
 		viewModel?.fetchCategory()
 		viewModel?.fetchMenu()
 		
@@ -44,10 +45,6 @@ class DetailPageViewController: UIViewController {
 		configureNavigationBar()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		useBukaRestoBaseNavBar()
-	}
-		
 	private func configureNavigationBar() {
 		let appearance = UINavigationBarAppearance()
 		appearance.configureWithOpaqueBackground()
