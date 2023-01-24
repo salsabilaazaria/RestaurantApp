@@ -16,6 +16,8 @@
 		082CA02B29656342006CB946 /* AllRestoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082CA02929656342006CB946 /* AllRestoCollectionViewCell.swift */; };
 		082CA02C29656342006CB946 /* AllRestoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082CA02A29656342006CB946 /* AllRestoCollectionViewCell.xib */; };
 		086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */; };
+		08A35B60297E7E0B00E0D816 /* DetailRestoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A35B5E297E7E0B00E0D816 /* DetailRestoTableViewCell.swift */; };
+		08A35B61297E7E0B00E0D816 /* DetailRestoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A35B5F297E7E0B00E0D816 /* DetailRestoTableViewCell.xib */; };
 		08B167D6295D7C1700721067 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B167D5295D7C1700721067 /* LocationManager.swift */; };
 		1AC4BC6BD731C134D128413E /* Pods_RestaurantAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED02654402D3A34BB2C8C325 /* Pods_RestaurantAppTests.framework */; };
 		4DE0874C6D1BD70B404C0F0A /* Pods_RestaurantApp_RestaurantAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A283198BCBC864F40426AF /* Pods_RestaurantApp_RestaurantAppUITests.framework */; };
@@ -48,6 +50,7 @@
 		AF7207DE2962E87300E2FB0C /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7207DC2962E87300E2FB0C /* QRScannerViewController.xib */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
+		AFD981F5297FDC2B0040C699 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD981F4297FDC2B0040C699 /* Date+Extension.swift */; };
 		AFDA60342965739400EF8AB8 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */; };
 		AFDA60352965739400EF8AB8 /* DetailPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */; };
 		AFDA603D296578FC00EF8AB8 /* MenuSectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA603B296578FC00EF8AB8 /* MenuSectionTableView.swift */; };
@@ -90,6 +93,8 @@
 		082CA02929656342006CB946 /* AllRestoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRestoCollectionViewCell.swift; sourceTree = "<group>"; };
 		082CA02A29656342006CB946 /* AllRestoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllRestoCollectionViewCell.xib; sourceTree = "<group>"; };
 		086C572F2952FFDD00F244C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08A35B5E297E7E0B00E0D816 /* DetailRestoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRestoTableViewCell.swift; sourceTree = "<group>"; };
+		08A35B5F297E7E0B00E0D816 /* DetailRestoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRestoTableViewCell.xib; sourceTree = "<group>"; };
 		08B167D5295D7C1700721067 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1C343EB85E4A7B499616269C /* Pods-RestaurantAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantAppTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantAppTests/Pods-RestaurantAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		51BB6458CF820E04EC1F5531 /* Pods_RestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +135,7 @@
 		AF7207DC2962E87300E2FB0C /* QRScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScannerViewController.xib; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		AFD981F4297FDC2B0040C699 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
 		AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPageViewController.xib; sourceTree = "<group>"; };
 		AFDA603B296578FC00EF8AB8 /* MenuSectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSectionTableView.swift; sourceTree = "<group>"; };
@@ -202,6 +208,15 @@
 				082CA02A29656342006CB946 /* AllRestoCollectionViewCell.xib */,
 			);
 			path = AllResto;
+			sourceTree = "<group>";
+		};
+		08A35B5D297E7DC100E0D816 /* DetailResto */ = {
+			isa = PBXGroup;
+			children = (
+				08A35B5E297E7E0B00E0D816 /* DetailRestoTableViewCell.swift */,
+				08A35B5F297E7E0B00E0D816 /* DetailRestoTableViewCell.xib */,
+			);
+			path = DetailResto;
 			sourceTree = "<group>";
 		};
 		0910103676C930B70A2B0C78 /* Pods */ = {
@@ -348,6 +363,7 @@
 				AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */,
 				AF2F69B32955BB2700F04660 /* URLSession+Extension.swift */,
 				AF4FED42296C209E00199788 /* UIImage+Extension.swift */,
+				AFD981F4297FDC2B0040C699 /* Date+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -355,6 +371,7 @@
 		AFDA60312965738000EF8AB8 /* DetailPage */ = {
 			isa = PBXGroup;
 			children = (
+				08A35B5D297E7DC100E0D816 /* DetailResto */,
 				AFDA60362965761300EF8AB8 /* Menu */,
 				AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */,
 				AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */,
@@ -530,6 +547,7 @@
 				AF3C3591295AB0CD0077E00B /* SearchPageViewController.xib in Resources */,
 				086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
+				08A35B61297E7E0B00E0D816 /* DetailRestoTableViewCell.xib in Resources */,
 				AFDA60352965739400EF8AB8 /* DetailPageViewController.xib in Resources */,
 				AFDA604229657AE600EF8AB8 /* MenuTableViewCell.xib in Resources */,
 				0815C88A2962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.xib in Resources */,
@@ -665,6 +683,7 @@
 				AFDA603D296578FC00EF8AB8 /* MenuSectionTableView.swift in Sources */,
 				080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */,
 				AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */,
+				AFD981F5297FDC2B0040C699 /* Date+Extension.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
 				08B167D6295D7C1700721067 /* LocationManager.swift in Sources */,
 				AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */,
@@ -672,6 +691,7 @@
 				AF2F69C32955C41800F04660 /* HeaderCollectionReusableView.swift in Sources */,
 				AF2F69B42955BB2700F04660 /* URLSession+Extension.swift in Sources */,
 				AF3C3590295AB0CD0077E00B /* SearchPageViewController.swift in Sources */,
+				08A35B60297E7E0B00E0D816 /* DetailRestoTableViewCell.swift in Sources */,
 				AFDA604129657AE600EF8AB8 /* MenuTableViewCell.swift in Sources */,
 				0815C8892962E2FA0081B7D3 /* NearbyRestoSectionCollectionView.swift in Sources */,
 				AF4FED43296C209E00199788 /* UIImage+Extension.swift in Sources */,

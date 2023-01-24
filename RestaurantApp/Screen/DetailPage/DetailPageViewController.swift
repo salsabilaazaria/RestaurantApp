@@ -11,30 +11,43 @@ class DetailPageViewController: UIViewController {
 	
 	@IBOutlet weak var detailPageTableView: UITableView!
 	
+	private let detailRestoSectionCellIdentifier = DetailRestoTableViewCell().identifier
 	private let menuSectionCellIdentifier = MenuSectionTableView().identifier
 	private let menuCategoryCollectionViewCell = MenuCategoryCollectionViewCell().identifier
 	
-	private let viewModel = DetailPageViewModel()
+	private let viewModel: DetailPageViewModel?
 	
 	private var categoryCollectionView: UICollectionView!
 	private var headerView: UIView!
 	
 	private let headerHeight: CGFloat = 50
 	
+	init(viewModel: DetailPageViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		self.viewModel = nil
+		super.init(coder: coder)
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		useBukaRestoBaseNavBar()
-		viewModel.fetchCategory()
-		viewModel.fetchMenu()
+		viewModel?.fetchCategory()
+		viewModel?.fetchMenu()
 		
 		configureTableView()
 		configureViewModel()
 		configureCategoryCollectionView()
 		configureHeaderMenuSection()
 		configureNavigationBar()
-		
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		useBukaRestoBaseNavBar()
+	}
+		
 	private func configureNavigationBar() {
 		let appearance = UINavigationBarAppearance()
 		appearance.configureWithOpaqueBackground()
@@ -51,10 +64,11 @@ class DetailPageViewController: UIViewController {
 		detailPageTableView.dataSource = self
 		detailPageTableView.register(UINib(nibName: menuSectionCellIdentifier, bundle: nil), forCellReuseIdentifier: menuSectionCellIdentifier)
 		detailPageTableView.sectionHeaderTopPadding = 0
+		detailPageTableView.register(UINib(nibName: detailRestoSectionCellIdentifier, bundle: nil), forCellReuseIdentifier: detailRestoSectionCellIdentifier)
 	}
 	
 	private func configureViewModel() {
-		viewModel.onReload = { [weak self] in
+		viewModel?.onReload = { [weak self] in
 			DispatchQueue.main.async {
 				self?.detailPageTableView.reloadData()
 				self?.categoryCollectionView.reloadData()
@@ -123,13 +137,27 @@ extension DetailPageViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		switch indexPath.section {
+		case 0:
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: detailRestoSectionCellIdentifier) as? DetailRestoTableViewCell,
+				  let restoData = viewModel?.resto else {
+					  return UITableViewCell()
+				  }
+
+			cell.setRestoName(restoName: restoData.name ?? "")
+			cell.setRestoAddress(address: restoData.address ?? "")
+			cell.setRestoOpenHours(restoOpenHours: viewModel?.getTodayOpenHours(), isOpen: viewModel?.getTodayRestoStatus())
+		
+			return cell
+			
+			
 		case 1:
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: menuSectionCellIdentifier) as? MenuSectionTableView,
-				  let restoMenu = viewModel.restoMenu else {
+				  let restoMenu = viewModel?.restoMenu else {
 					  return UITableViewCell()
 				  }
 			cell.restoMenu = restoMenu
 			cell.mainScrollView = tableView
+			cell.firstSectionMainCellHeight = getFirstSectionHeight()
 			return cell
 		default:
 			let tableCell = UITableViewCell()
@@ -144,12 +172,16 @@ extension DetailPageViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath.section {
 		case 0:
-			return 44
+			return getFirstSectionHeight()
 		case 1:
 			return UIScreen.main.bounds.height - headerHeight - (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0) - (navigationController?.navigationBar.frame.height ?? 0)
 		default:
 			return 0
 		}
+	}
+	
+	func getFirstSectionHeight() -> CGFloat {
+		return UIScreen.main.bounds.height/2
 	}
 	
 	
@@ -175,12 +207,12 @@ extension DetailPageViewController: UICollectionViewDataSource, UICollectionView
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return viewModel.restoMenu?.count ?? 0
+		return viewModel?.restoMenu?.count ?? 0
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuCategoryCollectionViewCell, for: indexPath) as! MenuCategoryCollectionViewCell
-		guard let menuCategory = viewModel.restoMenu?[indexPath.row].categoryName  else {
+		guard let menuCategory = viewModel?.restoMenu?[indexPath.row].categoryName  else {
 			return cell
 		}
 		
@@ -210,7 +242,7 @@ extension DetailPageViewController: UIScrollViewDelegate {
 		
 		let mainYContentOffSet = scrollView.contentOffset.y
 		let cellYContentOffSet = menuCell.menuTableView.contentOffset.y
-		let cellHeight: CGFloat = 44
+		let cellHeight: CGFloat = getFirstSectionHeight()
 		
 		if mainYContentOffSet > cellHeight {
 			//maksa supaya cell diatas menu ke hide trs
@@ -218,17 +250,6 @@ extension DetailPageViewController: UIScrollViewDelegate {
 			let newCellOffSet = menuCell.menuTableView.contentOffset.y + delta
 			scrollView.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
 			menuCell.menuTableView.setContentOffset(CGPoint(x: 0, y: newCellOffSet), animated: false)
-		}
-		
-		
-		if mainYContentOffSet >= 0,
-		   mainYContentOffSet < cellHeight,
-		   cellYContentOffSet >= 0 {
-			//TODO: need to be iemprove
-			//menu table di scroll ke bawah, terus drag keatas
-			//handle supaya cell atasnya ttp ga showing
-			scrollView.setContentOffset(CGPoint(x: 0, y: cellHeight), animated: false)
-		
 		}
 
 	}
@@ -249,7 +270,7 @@ extension DetailPageViewController: UIScrollViewDelegate {
 		}
 		
 		let mainYContentOffSet = scrollView.contentOffset.y
-		let cellHeight: CGFloat = 44
+		let cellHeight: CGFloat = getFirstSectionHeight()
 		
 		if mainYContentOffSet >= cellHeight {
 			scrollView.isScrollEnabled = false

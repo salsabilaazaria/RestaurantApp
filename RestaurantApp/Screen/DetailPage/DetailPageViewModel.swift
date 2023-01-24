@@ -17,6 +17,7 @@ class DetailPageViewModel {
 	var onReload: (() -> Void)?
 	var onReloadNearbySection: (() -> Void)?
 	
+	var resto: Resto? = nil
 	var allCategory: [Category]? = nil {
 		didSet {
 			self.finishedAllFetch = self.menu != nil && self.allCategory != nil
@@ -44,10 +45,26 @@ class DetailPageViewModel {
 		}
 	}
 
-	init() {
-		
+	init(resto: Resto) {
+		self.resto = resto
 	}
 	
+	func getTodayOpenHours() -> OpenHours? {
+		let currentDate = Date()
+		let currentDay = currentDate.dayNumber()
+
+		return resto?.open_hours?.first(where: { $0.day == currentDay })
+	}
+	
+	func getTodayRestoStatus() -> Bool? {
+		let currentDate = Date()
+		let currentDay = currentDate.dayNumber()
+
+		let restoOpenHour = resto?.open_hours?.first(where: { $0.day == currentDay })
+		return restoOpenHour?.is_open
+	}
+	
+	//Manipulate Menu Data
 	private func createData() {
 		guard let menus = self.menu else {
 			return
@@ -78,6 +95,7 @@ class DetailPageViewModel {
 		return cat?.name 
 	}
 	
+	//Fetch API
 	func fetchCategory() {
 		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/category/1")
 		URLSession.shared.requestData(url: url, expecting: CategoryBaseResponse.self) { result in
@@ -92,7 +110,11 @@ class DetailPageViewModel {
 	}
 	
 	func fetchMenu() {
-		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/food/1")
+		guard let restoId = resto?.id else {
+			return
+		}
+		
+		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/food/\(restoId)")
 		URLSession.shared.requestData(url: url, expecting: MenuBaseResponse.self) { result in
 			switch result {
 			case .success(let baseResponse):

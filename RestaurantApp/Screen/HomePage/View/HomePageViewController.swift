@@ -210,6 +210,19 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		return 0
 	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if indexPath.section == 2 {
+			guard let restoData = viewModel.allResto?.data?[indexPath.row] else {
+				return
+			}
+			
+			let detailVM = DetailPageViewModel(resto: restoData)
+			let detailVC = DetailPageViewController(viewModel: detailVM)
+			navigationController?.pushViewController(detailVC, animated: true)
+//			vc.getdatabase
+		}
+	}
 
 }
 
