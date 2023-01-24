@@ -29,7 +29,6 @@ class MenuTableViewCell: UITableViewCell {
 
 	override func awakeFromNib() {
         super.awakeFromNib()
-		menuImage.isHidden = true
         // Initialization code
     }
 
