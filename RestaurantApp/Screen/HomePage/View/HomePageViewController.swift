@@ -220,7 +220,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 			let detailVM = DetailPageViewModel(resto: restoData)
 			let detailVC = DetailPageViewController(viewModel: detailVM)
 			navigationController?.pushViewController(detailVC, animated: true)
-//			vc.getdatabase
 		}
 	}
 
