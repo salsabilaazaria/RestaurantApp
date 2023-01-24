@@ -21,6 +21,7 @@ class DetailPageViewController: UIViewController {
 	private var headerView: UIView!
 	
 	private let headerHeight: CGFloat = 50
+	var firstSectionHeight: CGFloat = 0
 	
 	init(viewModel: DetailPageViewModel) {
 		self.viewModel = viewModel
@@ -140,6 +141,7 @@ extension DetailPageViewController: UITableViewDataSource {
 					  return UITableViewCell()
 				  }
 
+			self.firstSectionHeight = cell.restoImage.frame.height + cell.restoInfoView.frame.height
 			cell.setRestoName(restoName: restoData.name ?? "")
 			cell.setRestoAddress(address: restoData.address ?? "")
 			cell.setRestoOpenHours(restoOpenHours: viewModel?.getTodayOpenHours(), isOpen: viewModel?.getTodayRestoStatus())
@@ -178,7 +180,8 @@ extension DetailPageViewController: UITableViewDataSource {
 	}
 	
 	func getFirstSectionHeight() -> CGFloat {
-		return UIScreen.main.bounds.height/2
+		return self.firstSectionHeight
+		
 	}
 	
 	
