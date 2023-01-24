@@ -19,13 +19,13 @@ class QRScannerViewController: UIViewController, UIImagePickerControllerDelegate
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		useBukaRestoBaseNavBar()
 		#if targetEnvironment(device)
 			setupScanner()
 		#endif
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		navigationController?.setNavigationBarHidden(true, animated: false)
 		self.captureSession?.startRunning()
 	}
 	
