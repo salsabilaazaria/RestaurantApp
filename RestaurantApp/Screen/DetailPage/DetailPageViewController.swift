@@ -22,7 +22,6 @@ class DetailPageViewController: UIViewController {
 	
 	private let headerHeight: CGFloat = 50
 	
-	
 	init(viewModel: DetailPageViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
@@ -140,10 +139,11 @@ extension DetailPageViewController: UITableViewDataSource {
 				  let restoData = viewModel?.resto else {
 					  return UITableViewCell()
 				  }
-			let openHours = restoData.open_hours
+
+			cell.setRestoName(restoName: restoData.name ?? "")
+			cell.setRestoAddress(address: restoData.address ?? "")
+			cell.setRestoOpenHours(restoOpenHours: viewModel?.getTodayOpenHours(), isOpen: viewModel?.getTodayRestoStatus())
 		
-			cell.setPropertyLabel(restoName: restoData.name ?? "", operationalTime: "\(openHours)", address: restoData.address ?? "")
-			
 			return cell
 			
 			

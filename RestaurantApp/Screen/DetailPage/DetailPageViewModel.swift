@@ -49,6 +49,21 @@ class DetailPageViewModel {
 		self.resto = resto
 	}
 	
+	func getTodayOpenHours() -> OpenHours? {
+		let currentDate = Date()
+		let currentDay = currentDate.dayNumber()
+
+		return resto?.open_hours?.first(where: { $0.day == currentDay })
+	}
+	
+	func getTodayRestoStatus() -> Bool? {
+		let currentDate = Date()
+		let currentDay = currentDate.dayNumber()
+
+		let restoOpenHour = resto?.open_hours?.first(where: { $0.day == currentDay })
+		return restoOpenHour?.is_open
+	}
+	
 	private func createData() {
 		guard let menus = self.menu else {
 			return

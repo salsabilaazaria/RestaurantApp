@@ -9,11 +9,14 @@ import UIKit
 
 class DetailRestoTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var restoImage: UIImageView!
+	@IBOutlet weak var restoInfoView: UIView!
+	@IBOutlet weak var restoInfoStack: UIStackView!
+	@IBOutlet weak var leftRestoInfoStack: UIStackView!
 	@IBOutlet weak var restaurantNameLabel: UILabel!
 	@IBOutlet weak var restaurantOperationalLabel: UILabel!
 	@IBOutlet weak var restaurantAddressLabel: UILabel!
 	@IBOutlet weak var restaurantIsOpen: UILabel!
-	
 	
 	let identifier = "DetailRestoTableViewCell"
 	
@@ -32,10 +35,25 @@ class DetailRestoTableViewCell: UITableViewCell {
 		
 	}
 	
-	func setPropertyLabel(restoName: String, operationalTime: String, address: String){
+	func setRestoName(restoName: String){
 		restaurantNameLabel.attributedText = NSAttributedString.body(text: restoName)
-		restaurantOperationalLabel.attributedText = NSAttributedString.body(text: operationalTime)
+	}
+	
+	func setRestoAddress(address: String){
 		restaurantAddressLabel.attributedText = NSAttributedString.body(text: address)
 	}
+	
+	func setRestoOpenHours(restoOpenHours: OpenHours?, isOpen: Bool?) {
+		guard let restoOpenHours = restoOpenHours, let isOpen = isOpen else {
+			return
+		}
+		restaurantOperationalLabel.attributedText = NSAttributedString.body(text: "\(restoOpenHours.open_hour ?? "") - \(restoOpenHours.close_hour ?? "")")
+		
+		let openText = NSAttributedString.body(text: "OPEN TODAY", color: .bukaRestoDarkGreen)
+		let closeText = NSAttributedString.body(text: "CLOSED", color: .bukaRestoErrorFontColor)
+		restaurantIsOpen.attributedText = isOpen ? openText : closeText
+	}
+	
+	
     
 }

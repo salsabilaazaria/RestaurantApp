@@ -50,6 +50,7 @@
 		AF7207DE2962E87300E2FB0C /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7207DC2962E87300E2FB0C /* QRScannerViewController.xib */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
+		AFD981F5297FDC2B0040C699 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD981F4297FDC2B0040C699 /* Date+Extension.swift */; };
 		AFDA60342965739400EF8AB8 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */; };
 		AFDA60352965739400EF8AB8 /* DetailPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */; };
 		AFDA603D296578FC00EF8AB8 /* MenuSectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA603B296578FC00EF8AB8 /* MenuSectionTableView.swift */; };
@@ -134,6 +135,7 @@
 		AF7207DC2962E87300E2FB0C /* QRScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScannerViewController.xib; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		AFD981F4297FDC2B0040C699 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
 		AFDA60332965739400EF8AB8 /* DetailPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPageViewController.xib; sourceTree = "<group>"; };
 		AFDA603B296578FC00EF8AB8 /* MenuSectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSectionTableView.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				AFE985B92951AD3E008CCC36 /* ViewController+Extension.swift */,
 				AF2F69B32955BB2700F04660 /* URLSession+Extension.swift */,
 				AF4FED42296C209E00199788 /* UIImage+Extension.swift */,
+				AFD981F4297FDC2B0040C699 /* Date+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				AFDA603D296578FC00EF8AB8 /* MenuSectionTableView.swift in Sources */,
 				080CCE4B29544DA200C50D00 /* LoginViewController.swift in Sources */,
 				AF7207D72962AF2600E2FB0C /* SearchPageViewModel.swift in Sources */,
+				AFD981F5297FDC2B0040C699 /* Date+Extension.swift in Sources */,
 				AF528D1D2947283100CF81A5 /* ViewController.swift in Sources */,
 				08B167D6295D7C1700721067 /* LocationManager.swift in Sources */,
 				AFE985B72951ACEE008CCC36 /* HomePageViewController.swift in Sources */,
