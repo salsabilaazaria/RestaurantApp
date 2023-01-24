@@ -110,6 +110,16 @@ extension MenuSectionTableView: UIScrollViewDelegate {
 			scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
 		}
 		
+		if cellYContentOffSet > 0,
+		   mainYContentOffSet < firstSectionMainCellHeight {
+			//to prevent menu table udah ke scroll kebawah tapi cell diatasnya ga ke hide
+			let delta = abs(cellYContentOffSet)
+			var newCellOffSet = scrollView.contentOffset.y + delta
+			newCellOffSet = min(newCellOffSet, firstSectionMainCellHeight)
+			mainScrollView?.setContentOffset(CGPoint(x: 0, y: newCellOffSet), animated: false)
+		}
+
+		
 	}
 	
 	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

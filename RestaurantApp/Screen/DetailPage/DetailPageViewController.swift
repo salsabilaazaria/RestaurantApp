@@ -154,6 +154,7 @@ extension DetailPageViewController: UITableViewDataSource {
 				  }
 			cell.restoMenu = restoMenu
 			cell.mainScrollView = tableView
+			cell.firstSectionMainCellHeight = getFirstSectionHeight()
 			return cell
 		default:
 			let tableCell = UITableViewCell()
