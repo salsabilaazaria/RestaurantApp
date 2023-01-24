@@ -64,6 +64,7 @@ class DetailPageViewModel {
 		return restoOpenHour?.is_open
 	}
 	
+	//Manipulate Menu Data
 	private func createData() {
 		guard let menus = self.menu else {
 			return
@@ -94,6 +95,7 @@ class DetailPageViewModel {
 		return cat?.name 
 	}
 	
+	//Fetch API
 	func fetchCategory() {
 		let url = URL(string: "https://private-893e7e-bukaresto.apiary-mock.com/category/1")
 		URLSession.shared.requestData(url: url, expecting: CategoryBaseResponse.self) { result in

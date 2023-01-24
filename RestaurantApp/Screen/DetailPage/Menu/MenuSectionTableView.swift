@@ -118,7 +118,6 @@ extension MenuSectionTableView: UIScrollViewDelegate {
 			newCellOffSet = min(newCellOffSet, firstSectionMainCellHeight)
 			mainScrollView?.setContentOffset(CGPoint(x: 0, y: newCellOffSet), animated: false)
 		}
-
 		
 	}
 	
