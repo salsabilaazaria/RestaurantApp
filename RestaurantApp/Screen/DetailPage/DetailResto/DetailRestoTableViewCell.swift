@@ -18,10 +18,12 @@ class DetailRestoTableViewCell: UITableViewCell {
 	@IBOutlet weak var restaurantAddressLabel: UILabel!
 	@IBOutlet weak var restaurantIsOpen: UILabel!
 	
+	@IBOutlet weak var openHourTitle: UILabel!
 	let identifier = "DetailRestoTableViewCell"
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
+		openHourTitle.attributedText = NSAttributedString.body(text: "Today Open Hour:")
         // Initialization code
     }
 
@@ -36,7 +38,7 @@ class DetailRestoTableViewCell: UITableViewCell {
 	}
 	
 	func setRestoName(restoName: String){
-		restaurantNameLabel.attributedText = NSAttributedString.body(text: restoName)
+		restaurantNameLabel.attributedText = NSAttributedString.title(text: restoName)
 	}
 	
 	func setRestoAddress(address: String){
@@ -47,10 +49,10 @@ class DetailRestoTableViewCell: UITableViewCell {
 		guard let restoOpenHours = restoOpenHours, let isOpen = isOpen else {
 			return
 		}
-		restaurantOperationalLabel.attributedText = NSAttributedString.body(text: "\(restoOpenHours.open_hour ?? "") - \(restoOpenHours.close_hour ?? "")")
+		restaurantOperationalLabel.attributedText = NSAttributedString.subBody(text: "\(restoOpenHours.open_hour ?? "") - \(restoOpenHours.close_hour ?? "")")
 		
-		let openText = NSAttributedString.body(text: "OPEN TODAY", color: .bukaRestoDarkGreen)
-		let closeText = NSAttributedString.body(text: "CLOSED", color: .bukaRestoErrorFontColor)
+		let openText = NSAttributedString.title(text: "OPEN TODAY", color: .bukaRestoDarkGreen)
+		let closeText = NSAttributedString.title(text: "CLOSED", color: .bukaRestoErrorFontColor)
 		restaurantIsOpen.attributedText = isOpen ? openText : closeText
 	}
 	
