@@ -61,7 +61,28 @@ class DetailPageViewModel {
 		let currentDay = currentDate.dayNumber()
 
 		let restoOpenHour = resto?.open_hours?.first(where: { $0.day == currentDay })
-		return restoOpenHour?.is_open
+		
+		let dateFormatter = DateFormatter()
+
+		dateFormatter.timeZone = TimeZone(identifier: "Asia/Jakarta")
+		dateFormatter.locale = Locale(identifier: "id")
+		dateFormatter.dateFormat = "HH:mm"
+		
+		let currentTimeString = dateFormatter.string(from: currentDate)
+		
+		guard let openHours = dateFormatter.date(from: restoOpenHour?.open_hour ?? ""),
+			  let closeHours = dateFormatter.date(from: restoOpenHour?.close_hour ?? ""),
+			  let currentTimeDate = dateFormatter.date(from: currentTimeString) else {
+				  return false
+			  }
+		
+		print("DIMAS DIMAS OPEN\(openHours)")
+		print("DIMAS DIMAS OPEN\(closeHours)")
+		print("DIMAS DIMAS OPEN\(currentTimeDate)")
+		
+		let isRestaurantOpen = ((currentTimeDate > openHours) && (currentTimeDate < closeHours) && ((restoOpenHour?.is_open) ?? false) )
+		
+		return isRestaurantOpen
 	}
 	
 	//Manipulate Menu Data
