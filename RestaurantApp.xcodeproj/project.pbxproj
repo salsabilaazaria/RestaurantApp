@@ -44,6 +44,8 @@
 		AF72E3662967DE0A00A73F90 /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF72E3652967DE0A00A73F90 /* DetailPageViewModel.swift */; };
 		AF72E36D29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF72E36B29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift */; };
 		AF72E36E29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF72E36C29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib */; };
+		AF7207DD2962E87300E2FB0C /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7207DB2962E87300E2FB0C /* QRScannerViewController.swift */; };
+		AF7207DE2962E87300E2FB0C /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7207DC2962E87300E2FB0C /* QRScannerViewController.xib */; };
 		AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690129507B1900188F3B /* UIColor+Extension.swift */; };
 		AFCB690429507D7100188F3B /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */; };
 		AFDA60342965739400EF8AB8 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */; };
@@ -124,6 +126,8 @@
 		AF72E3652967DE0A00A73F90 /* DetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewModel.swift; sourceTree = "<group>"; };
 		AF72E36B29680DD000A73F90 /* MenuCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		AF72E36C29680DD000A73F90 /* MenuCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		AF7207DB2962E87300E2FB0C /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		AF7207DC2962E87300E2FB0C /* QRScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScannerViewController.xib; sourceTree = "<group>"; };
 		AFCB690129507B1900188F3B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AFCB690329507D7100188F3B /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		AFDA60322965739400EF8AB8 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
@@ -319,11 +323,21 @@
 			isa = PBXGroup;
 			children = (
 				AFDA60312965738000EF8AB8 /* DetailPage */,
+				AF7207D82962E81C00E2FB0C /* QRScanner */,
 				AF3C3589295AB0830077E00B /* SearchPage */,
 				080CCE4829544ABA00C50D00 /* LoginPage */,
 				AFE985B42951ACD9008CCC36 /* HomePage */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		AF7207D82962E81C00E2FB0C /* QRScanner */ = {
+			isa = PBXGroup;
+			children = (
+				AF7207DB2962E87300E2FB0C /* QRScannerViewController.swift */,
+				AF7207DC2962E87300E2FB0C /* QRScannerViewController.xib */,
+			);
+			path = QRScanner;
 			sourceTree = "<group>";
 		};
 		AFCB690029507B0900188F3B /* Helper */ = {
@@ -512,6 +526,7 @@
 				AF3C35882959A96A0077E00B /* PopUpViewController.xib in Resources */,
 				AF2F69B92955BBE800F04660 /* TopRestoCollectionViewCell.xib in Resources */,
 				AFDA603E296578FC00EF8AB8 /* MenuSectionTableView.xib in Resources */,
+				AF7207DE2962E87300E2FB0C /* QRScannerViewController.xib in Resources */,
 				AF3C3591295AB0CD0077E00B /* SearchPageViewController.xib in Resources */,
 				086C57302952FFDD00F244C2 /* GoogleService-Info.plist in Resources */,
 				AF528D222947283400CF81A5 /* Assets.xcassets in Resources */,
@@ -669,6 +684,7 @@
 				AF3C35872959A96A0077E00B /* PopUpViewController.swift in Sources */,
 				AFFB2E7B295C38A9008F1F77 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				AF528D192947283100CF81A5 /* AppDelegate.swift in Sources */,
+				AF7207DD2962E87300E2FB0C /* QRScannerViewController.swift in Sources */,
 				AFCB690229507B1900188F3B /* UIColor+Extension.swift in Sources */,
 				AFDA60342965739400EF8AB8 /* DetailPageViewController.swift in Sources */,
 				AF2F69B82955BBE800F04660 /* TopRestoCollectionViewCell.swift in Sources */,
