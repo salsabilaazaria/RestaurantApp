@@ -36,7 +36,7 @@
 	<string>Need Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need Location</string>
-	<key></key>
-	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera Use Description</string>
 </dict>
 </plist>
