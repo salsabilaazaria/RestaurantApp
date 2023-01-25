@@ -12,6 +12,8 @@ class QRScannerViewController: UIViewController, UIImagePickerControllerDelegate
 	@IBOutlet weak var cameraContainer: UIView!
 	@IBOutlet weak var labelResult: UILabel!
 	
+	let label: UILabel = UILabel()
+	
 	var imageOrientation: AVCaptureVideoOrientation?
 	var captureSession: AVCaptureSession?
 	var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -33,8 +35,8 @@ class QRScannerViewController: UIViewController, UIImagePickerControllerDelegate
 		// Get an instance of the AVCaptureDevice class to initialize a
 		// device object and provide the video as the media type parameter
 		guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
+			fatalError("No video device found")
 			return
-//			fatalError("No video device found")
 		}
 		
 		self.imageOrientation = AVCaptureVideoOrientation.portrait
@@ -70,7 +72,8 @@ class QRScannerViewController: UIViewController, UIImagePickerControllerDelegate
 			videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
 			videoPreviewLayer?.frame = view.layer.bounds
 			cameraContainer.layer.addSublayer(videoPreviewLayer!)
-			
+			label.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+			cameraContainer.addSubview(label)
 			//start video capture
 			captureSession?.startRunning()
 			
@@ -102,7 +105,7 @@ class QRScannerViewController: UIViewController, UIImagePickerControllerDelegate
 			return
 		}
 		
-		//self.captureSession?.stopRunning()
+//		self.captureSession?.stopRunning()
 		
 		// Get the metadata object.
 		let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
@@ -112,6 +115,7 @@ class QRScannerViewController: UIViewController, UIImagePickerControllerDelegate
 				DispatchQueue.main.async {
 					print(outputString)
 					self.labelResult.text = outputString
+					self.label.text = outputString
 				}
 			}
 		}
